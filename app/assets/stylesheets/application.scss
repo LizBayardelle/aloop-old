@@ -1,0 +1,165 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Hero Images
+==============================================
+*/
+
+.bgi-div {
+	overflow: hidden;
+	position: fixed;
+	height: 100vh;
+	z-index: 0;
+	margin-top: -100px;
+	width: 100%;
+}
+
+.bgi-image {
+	min-width: 100%;
+	max-width: none;
+	max-height: 100%;
+}
+
+.hero-image-row {
+   margin-top: -100px;
+   overflow-x: hidden !important;
+   width: 100% !important;
+ }
+
+.hero-image-outer {
+   width: 350%;
+   height: 600px;
+   overflow-y: hidden !important;
+ }
+
+ .hero-image-inner {
+   width: 75%;
+   overflow-x: hidden !important;
+ }
+
+ .hero-image {
+   height: 600px;
+   margin-left: -61.5%;
+   z-index: 0 !important;
+ }
+
+ @media screen and (min-width: 900px) {
+   .hero-image-outer {
+     width: 100%;
+   }
+
+   .hero-image-inner {
+     width: 100%;
+   }
+
+   .hero-image {
+     width: 100%;
+     height: auto;
+     margin-left: 0%;
+   }
+ }
+
+ .overlap-hero-image {
+   margin-top: -600px;
+   height: 600px;
+   position: relative;
+   z-index: 10;
+ }
+
+
+
+
+
+
+ /*
+==============================================
+slideRight
+==============================================
+*/
+
+
+.slideRight{
+	animation-name: slideRight;
+	-webkit-animation-name: slideRight;	
+
+	animation-duration: 1s;	
+	-webkit-animation-duration: 1s;
+
+	animation-timing-function: ease-in-out;	
+	-webkit-animation-timing-function: ease-in-out;		
+
+	visibility: visible !important;	
+}
+
+@keyframes slideRight {
+	0% {
+		transform: translateX(-150%);
+	}
+	50%{
+		transform: translateX(8%);
+	}
+	65%{
+		transform: translateX(-4%);
+	}
+	80%{
+		transform: translateX(4%);
+	}
+	95%{
+		transform: translateX(-2%);
+	}			
+	100% {
+		transform: translateX(0%);
+	}	
+}
+
+@-webkit-keyframes slideRight {
+	0% {
+		-webkit-transform: translateX(-150%);
+	}
+	50%{
+		-webkit-transform: translateX(8%);
+	}
+	65%{
+		-webkit-transform: translateX(-4%);
+	}
+	80%{
+		-webkit-transform: translateX(4%);
+	}
+	95%{
+		-webkit-transform: translateX(-2%);
+	}			
+	100% {
+		-webkit-transform: translateX(0%);
+	}
+}
