@@ -17,7 +17,30 @@
 </head>
 
 <!-- MENU GOES HERE -->
+<div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+          <%= link_to root_path, class: "navbar-brand" do %>
+            <%= image_tag "masterlogoSQ.png", style: "margin: -50px 0 0 20px; height: 120px" %>
+          <% end %>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-menubuilder"><span class="sr-only">Toggle navigation</span><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span>
+            </button>
+        </div>
+        <div class="collapse navbar-collapse navbar-menubuilder">
+            <ul class="nav navbar-nav navbar-left">
+                <li><%= link_to 'Home', root_path %></li>
+                <li><a href="">Kits</a></li>
+                <li><a href="">Gallery</a></li>
+                <li><a href="">Store</a></li>
+                <li><%= link_to 'Info', home_info_path %></li>
+                <li><a href="">Contact Us</a></li>
+                <li><%= link_to 'Export', home_export_path %></li>
+            </ul>
+        </div>
+    </div>
+</div>
 
+<div class="main-nav-background"></div>
 
   <% if flash[:notice] %>
     <div class="alert alert-success">

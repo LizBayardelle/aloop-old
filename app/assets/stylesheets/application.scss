@@ -24,7 +24,128 @@
 
 
 
+/*
+==============================================
+Basics
+==============================================
+*/
 
+
+$color-silver: #cdcdcd;
+$color-red: #ec3223;
+$color-blue: #001dd7;
+$color-transparent-white: rgba(255,255,255,0.6);
+$color-transparent-red: rgba(255,0,0, 0.3);
+$color-transparent-blue: rgba(0,29,215, 0.3);
+
+.color-silver { color: $color-silver }
+.color-transparent-white { color: $color-transparent-white }
+
+.background-color-silver { background-color: $color-silver }
+.background-color-transparent-white { background-color: $color-transparent-white }
+
+
+
+
+
+
+
+
+/*
+==============================================
+Main Nav
+==============================================
+*/
+
+#main-nav {
+	position: absolute;
+	margin-top: 50px;
+	width: 100%;
+}
+
+.main-nav-background {
+	background-color: $color-silver;
+	height: 180px;
+}
+
+#main-nav.navbar-default {
+    font-size: 14px;
+    font-weight: 800;
+    border-top: solid 7px $color-transparent-white;
+    border-bottom: solid 7px $color-transparent-white;
+    background-clip: content-box;
+    padding: 7px 0 7px 0;
+    background-color: $color-transparent-white;
+}
+
+#main-nav.navbar-default .navbar-brand:hover {
+    background-color: transparent;
+}
+
+#main-nav.navbar-default .navbar-nav>li>a:hover {
+    border-top: solid 7px $color-transparent-blue;
+    border-bottom: solid 7px $color-transparent-blue;
+}
+
+#main-nav.navbar-default .navbar-nav>li>a {
+    color: black;
+    margin-top: -14px;
+    margin-bottom: -14px;
+    height: 80px;
+    width: 80px;
+    text-align: center;
+    line-height: 50px;
+    border-top: solid 7px transparent;
+    border-bottom: solid 7px transparent;
+    background-clip: content-box;
+    padding: 7px 0 7px 0;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+	#main-nav.navbar-default .navbar-nav>li>a {
+	    margin-top: -14px;
+	    margin-bottom: -14px;
+	    height: auto;
+	    width: 100%;
+	    text-align: center;
+	    line-height: 50px;
+	    border-top: solid 7px transparent;
+	    border-bottom: solid 7px transparent;
+	    background-clip: content-box;
+	    padding: 7px 0 7px 0;
+	    background-color: transparent;
+	}
+}
+
+#main-nav.navbar-default .navbar-nav>li>a:hover,
+#main-nav.navbar-default .navbar-nav>li>a:focus {
+    background-color: $color-transparent-red;
+    border-top: solid 7px $color-transparent-red;
+    border-bottom: solid 7px $color-transparent-red;
+}
+
+#main-nav.navbar-default .navbar-nav>.active>a,
+#main-nav.navbar-default .navbar-nav>.active>a:hover,
+#main-nav.navbar-default .navbar-nav>.active>a:focus {
+    color: rgba(85, 85, 85, 1);
+    background-color: rgba(231, 231, 231, 1);
+}
+#main-nav.navbar-default .navbar-toggle {
+    border-color: black;
+}
+#main-nav.navbar-default .navbar-toggle:hover,
+#main-nav.navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+    border-color: $color-red;
+}
+#main-nav.navbar-default .navbar-toggle .icon-bar {
+    background-color: black;
+}
+#main-nav.navbar-default .navbar-toggle:hover .icon-bar,
+#main-nav.navbar-default .navbar-toggle:focus .icon-bar {
+    background-color: $color-red;
+}
 
 
 
@@ -52,7 +173,7 @@ Hero Images
 }
 
 .hero-image-row {
-   margin-top: -100px;
+   margin-top: -250px;
    overflow-x: hidden !important;
    width: 100% !important;
  }
@@ -123,43 +244,15 @@ slideRight
 }
 
 @keyframes slideRight {
-	0% {
-		transform: translateX(-150%);
-	}
-	50%{
-		transform: translateX(8%);
-	}
-	65%{
-		transform: translateX(-4%);
-	}
-	80%{
-		transform: translateX(4%);
-	}
-	95%{
-		transform: translateX(-2%);
-	}			
-	100% {
-		transform: translateX(0%);
-	}	
+	0% { transform: translateX(-150%); }
+	50%{ transform: translateX(8%); }
+	65%{ transform: translateX(-4%); }
+	100% { transform: translateX(0%); }	
 }
 
 @-webkit-keyframes slideRight {
-	0% {
-		-webkit-transform: translateX(-150%);
-	}
-	50%{
-		-webkit-transform: translateX(8%);
-	}
-	65%{
-		-webkit-transform: translateX(-4%);
-	}
-	80%{
-		-webkit-transform: translateX(4%);
-	}
-	95%{
-		-webkit-transform: translateX(-2%);
-	}			
-	100% {
-		-webkit-transform: translateX(0%);
-	}
+	0% { -webkit-transform: translateX(-150%); }
+	50%{ -webkit-transform: translateX(8%); }
+	65%{ -webkit-transform: translateX(-4%); }
+	100% { -webkit-transform: translateX(0%); }
 }
