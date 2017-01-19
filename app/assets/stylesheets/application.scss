@@ -30,13 +30,18 @@ Basics
 ==============================================
 */
 
+$font-sans: 'Roboto', sans-serif;
+$font-serif: 'Lora', serif;
+
 
 $color-silver: #cdcdcd;
 $color-red: #ec3223;
 $color-blue: #001dd7;
-$color-transparent-white: rgba(255,255,255,0.6);
+$color-transparent-white: rgba(255,255,255,0.8);
 $color-transparent-red: rgba(255,0,0, 0.3);
 $color-transparent-blue: rgba(0,29,215, 0.3);
+$color-transparent-silver: rgba(205,205,205, 0.6);
+$color-transparent-black: rgba(0, 0, 0, 0.6);
 
 .color-silver { color: $color-silver }
 .color-transparent-white { color: $color-transparent-white }
@@ -44,10 +49,73 @@ $color-transparent-blue: rgba(0,29,215, 0.3);
 .background-color-silver { background-color: $color-silver }
 .background-color-transparent-white { background-color: $color-transparent-white }
 
+.btn-text {
+	padding: 15px;
+	line-height: 25px;
+}
+
+.btn {
+	background-color: $color-transparent-silver;
+	color: black;
+	font-weight: 900;
+	border-radius: 0;
+	margin: 10px 0 10px 0;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.btn:hover {
+	color: black !important;
+	box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.btn a {
+	color: black;
+	text-decoration: none !important;
+}
+
+.btn a:hover {
+	color: black !important;
+	text-decoration: none !important;
+}
 
 
-
-
+body { font-family: $font-sans }
+h2 { font-family: $font-serif }
+label {text-transform: capitalize }
+a:link {    /* unvisited link */
+    color: $color-blue;
+    text-decoration: none;
+}
+a:visited {    /* visited link */
+    color: $color-blue;
+}
+a:hover {    /* mouse over link */
+    color: $color-red;
+    text-decoration: underline;
+}
+a:active {    /* active link */
+    color: $color-red;
+}
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: rgba(0,29,215, 0.8);
+  box-shadow: 0 1px 1px rgba(0,29,215, 0.075) inset, 0 0 8px rgba(0,29,215, 0.6);
+  outline: 0 none;
+}
 
 
 
@@ -69,12 +137,14 @@ Main Nav
 }
 
 #main-nav.navbar-default {
-    font-size: 14px;
-    font-weight: 800;
-    border-top: solid 7px $color-transparent-white;
-    border-bottom: solid 7px $color-transparent-white;
+    font-size: 18px;
+    font-weight: 900;
+    text-transform: uppercase;
+    font-family: $font-sans;
+    border-top: solid 10px $color-transparent-white;
+    border-bottom: solid 10px $color-transparent-white;
     background-clip: content-box;
-    padding: 7px 0 7px 0;
+    padding: 5px 0 5px 0;
     background-color: $color-transparent-white;
 }
 
@@ -82,47 +152,50 @@ Main Nav
     background-color: transparent;
 }
 
+#main-nav .inner {
+	padding: 0 10px 0 10px;
+}
+
 #main-nav.navbar-default .navbar-nav>li>a:hover {
-    border-top: solid 7px $color-transparent-blue;
-    border-bottom: solid 7px $color-transparent-blue;
+    border-top: solid 10px $color-transparent-blue;
+    border-bottom: solid 10px $color-transparent-blue;
 }
 
 #main-nav.navbar-default .navbar-nav>li>a {
     color: black;
-    margin-top: -14px;
-    margin-bottom: -14px;
+    margin-top: -15px;
+    margin-bottom: -15px;
     height: 80px;
-    width: 80px;
     text-align: center;
     line-height: 50px;
-    border-top: solid 7px transparent;
-    border-bottom: solid 7px transparent;
+    border-top: solid 10px transparent;
+    border-bottom: solid 10px transparent;
     background-clip: content-box;
-    padding: 7px 0 7px 0;
+    padding: 5px 0 5px 0;
     background-color: transparent;
 }
 
 @media screen and (max-width: 768px) {
 	#main-nav.navbar-default .navbar-nav>li>a {
-	    margin-top: -14px;
-	    margin-bottom: -14px;
+	    margin-top: -15px;
+	    margin-bottom: -15px;
 	    height: auto;
 	    width: 100%;
 	    text-align: center;
 	    line-height: 50px;
-	    border-top: solid 7px transparent;
-	    border-bottom: solid 7px transparent;
+	    border-top: solid 10px transparent;
+	    border-bottom: solid 10px transparent;
 	    background-clip: content-box;
-	    padding: 7px 0 7px 0;
+	    padding: 5px 0 5px 0;
 	    background-color: transparent;
 	}
 }
 
 #main-nav.navbar-default .navbar-nav>li>a:hover,
 #main-nav.navbar-default .navbar-nav>li>a:focus {
-    background-color: $color-transparent-red;
-    border-top: solid 7px $color-transparent-red;
-    border-bottom: solid 7px $color-transparent-red;
+    background-color: $color-transparent-blue;
+    border-top: solid 10px $color-transparent-blue;
+    border-bottom: solid 10px $color-transparent-blue;
 }
 
 #main-nav.navbar-default .navbar-nav>.active>a,
@@ -146,6 +219,63 @@ Main Nav
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {
     background-color: $color-red;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Footer
+==============================================
+*/
+
+footer {
+	margin-top: 40px;
+	padding-top: 40px;
+}
+
+.footer-stripe {
+	background-color: $color-transparent-black;
+	border-top: solid 10px $color-transparent-black;
+	border-bottom: solid 10px $color-transparent-black;
+	background-clip: content-box;
+	padding: 5px 0 5px 0;
+	color: white;
+}
+
+.tri-row {
+	padding: 0 40px 0 40px;
+}
+
+footer h1 {
+	font-weight: 900;
+}
+
+footer h2 {
+	font-family: $font-sans;
+	font-weight: 900;
+}
+
+footer h3 {
+	margin-top: 0px;
+}
+
+
+
+
+
+
+
+
+
 
 
 
