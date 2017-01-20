@@ -10,13 +10,14 @@
  * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
  * file per style scope.
  *
+ *= require magnific-popup
  *= require_tree .
  *= require_self
  */
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
-
+@import 'ionicons';
 
 
 
@@ -43,16 +44,12 @@ $color-transparent-blue: rgba(0,29,215, 0.3);
 $color-transparent-silver: rgba(205,205,205, 0.6);
 $color-transparent-black: rgba(0, 0, 0, 0.6);
 
+.color-blue { color: $color-blue }
 .color-silver { color: $color-silver }
 .color-transparent-white { color: $color-transparent-white }
 
 .background-color-silver { background-color: $color-silver }
 .background-color-transparent-white { background-color: $color-transparent-white }
-
-.btn-text {
-	padding: 15px;
-	line-height: 25px;
-}
 
 .btn {
 	background-color: $color-transparent-silver;
@@ -61,6 +58,7 @@ $color-transparent-black: rgba(0, 0, 0, 0.6);
 	border-radius: 0;
 	margin: 10px 0 10px 0;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	text-transform: capitalize;
 }
 
 .btn:hover {
@@ -78,24 +76,24 @@ $color-transparent-black: rgba(0, 0, 0, 0.6);
 	text-decoration: none !important;
 }
 
-
 body { font-family: $font-sans }
-h2 { font-family: $font-serif }
+h2 {
+	font-size: 50px;
+	text-transform: uppercase;
+	font-family: $font-sans;
+	font-weight: 900;
+}
+h3 { font-family: $font-serif }
+p { font-size: 16px }
 label {text-transform: capitalize }
-a:link {    /* unvisited link */
-    color: $color-blue;
-    text-decoration: none;
+a:link { color: $color-blue; text-decoration: none; }
+a:visited { color: $color-blue; }
+a:hover { color: $color-red; text-decoration: underline; }
+a:active { color: $color-red; }
+a:focus, a:active {
+   outline: none !important;
 }
-a:visited {    /* visited link */
-    color: $color-blue;
-}
-a:hover {    /* mouse over link */
-    color: $color-red;
-    text-decoration: underline;
-}
-a:active {    /* active link */
-    color: $color-red;
-}
+
 textarea:focus,
 input[type="text"]:focus,
 input[type="password"]:focus,
@@ -116,6 +114,43 @@ input[type="color"]:focus,
   box-shadow: 0 1px 1px rgba(0,29,215, 0.075) inset, 0 0 8px rgba(0,29,215, 0.6);
   outline: 0 none;
 }
+
+.blue-box {
+	border: solid medium $color-blue;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	padding: 30px;
+	background-color: white;
+	position:relative;
+	margin: 20px 0 20px 0;
+}
+
+.flash-notice-area {
+	position: fixed;
+	width: 100%;
+	z-index: 100;
+}
+
+.alert {
+	border: solid thick $color-silver;
+	border-left: none;
+	border-right: none;
+	background-color: white;
+	border-radius: 0;
+	color: black;
+	font-weight: 900;
+	font-size: 24px;
+}
+
+.alert-success { border-color: $color-blue; }
+.alert-warning, .alert-danger { border-color: $color-red; }
+
+
+
+
+
+
+
+
 
 
 
@@ -239,7 +274,6 @@ Footer
 
 footer {
 	margin-top: 40px;
-	padding-top: 40px;
 }
 
 .footer-stripe {
@@ -249,6 +283,12 @@ footer {
 	background-clip: content-box;
 	padding: 5px 0 5px 0;
 	color: white;
+}
+
+.footer-bottom {
+	margin-top: 30px;
+	background-color: $color-transparent-silver;
+	padding: 25px 0 15px 0;
 }
 
 .tri-row {
@@ -264,11 +304,81 @@ footer h2 {
 	font-weight: 900;
 }
 
-footer h3 {
-	margin-top: 0px;
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Content Pages
+==============================================
+*/
+
+.header-row h1 {
+	font-size: 50px;
+	margin-top: 50px;
 }
 
+.header-row h2 {
+	margin-top: 50px;
+}
 
+.header-row .tracks {
+	width: 70%;
+	margin: 20px 0 20px 0
+}
+
+.no-underline:hover {
+	text-decoration: none !important;
+}
+
+.contact-formats .col-xs-10 {
+	border: thin solid black;
+	padding: 20px;
+	margin: 20px 0 20px 0;
+	border-radius: 15px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.contact-formats .ion {
+	font-size: 70px;
+	margin-bottom: 10px;
+}
+
+.contact-formats h2 {
+	font-size: 25px;
+}
+
+.contact-formats p {
+	color: black !important;
+}
+
+.white-popup {
+  position: relative;
+  background: #FFF;
+  padding: 20px;
+  width: auto;
+  max-width: 500px;
+  margin: 20px auto;
+}
+
+td {
+	padding: 10px 15px 10px 15px;
+	border: thin solid black;
+}
+
+th {
+	padding: 0 0 5px 5px;
+}
 
 
 

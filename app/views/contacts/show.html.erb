@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row slideRight">
+    <h2 class="text-center" style="margin-bottom: -10px"> New Message
+      <% if @contact.first_name && @contact.last_name %>
+        from <%= @contact.first_name %> <%= @contact.last_name %>
+      <% elsif @contact.company_name %>
+        from <%= @contact.company_name %>
+      <% end %>
+    </h2>
+  </div> <!-- header row -->
+
+  <div class="row">
+    <div class="col-xs-6 col-xs-push-3 col-md-4 col-md-push-4">
+      <%= image_tag "tire_tracks.jpg", style: "width: 100%; margin: 10px 0 30px 0", alt: "Tire tracks" %>
+    </div>  <!-- swirl column -->
+  </div> <!-- swirl row -->
+
+  <div class="row slideRight">
+    <div class="col-sm-10 col-sm-push-1">
+      <h3><strong>Preferred Contact Method: </strong> <%= @contact.preferred_contact_method %></h3>
+
+      <% if @contact.phone != "" %>
+        <h3><strong>Phone: </strong> <%= phone_number_link @contact.phone %></h3>
+      <% end %>
+
+      <% if @contact.email %>
+        <h3><strong>Email: </strong><%= mail_to @contact.email %></h3>
+      <% end %>
+
+      <hr>
+      <p><%= @contact.message %></p>
+
+      <div class="text-center">
+        <%= link_to 'Back', contacts_path %>
+      </div>
+    </div> <!-- column -->
+  </div> <!-- body row -->
+</div> <!-- page container -->

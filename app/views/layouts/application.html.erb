@@ -38,7 +38,11 @@
                 <li><%= link_to home_export_path do %><p class="inner">Gallery</p><% end %></li>
                 <li><%= link_to home_export_path do %><p class="inner">Store</p><% end %></li>
                 <li><%= link_to home_info_path do %><p class="inner">Info</p><% end %></li>
-                <li><%= link_to home_export_path do %><p class="inner">Contact</p><% end %></li>
+                <% if current_user && current_user.admin %>
+                  <li><%= link_to contacts_path do %><p class="inner">Messages</p><% end %></li>
+                <% else %>
+                  <li><%= link_to new_contact_path do %><p class="inner">Contact</p><% end %></li>
+                <% end %>
                 <li><%= link_to home_export_path do %><p class="inner">Export</p><% end %></li>
                 <% if current_user %>
                   <li><%= link_to user_path(current_user) do %><p class="inner">My Account</p><% end %></li>
@@ -52,6 +56,7 @@
 
 <div class="main-nav-background"></div>
 
+<div class="flash-notice-area">
   <% if flash[:notice] %>
     <div class="alert alert-success">
       <button type="button" class="close" data-dismiss="alert">&times;</button>
@@ -68,6 +73,7 @@
       <%= flash[:alert] %>
     </div>
   <% end %>
+</div> <!-- flash notice area -->
 
   
 <%= yield %>
@@ -75,33 +81,45 @@
 <footer>
   <div class="row text-center footer-stripe">
     <h1>Aloop Offroad</h1>
-    <h3>Unique Performance Prducts</h3>
+    <h4>Unique Performance Prducts</h4>
   </div> <!-- title -->
 
   <div class="row tri-row">
     <div class="col-sm-4">
-      <h2 class="text-center">Questions</h2>
+      <h3 class="text-center">Questions</h3>
       <p>If you really, really have to talk to a human being, then call Pete on his cell phone (<a href="tel:1-303-550-2582">+1 303-550-2582</a>) and leave a message.</p>
       <p>(He's the closest thing to a human being that we have here).</p>
       <p>Pete will get back to you as soon as possible, usually on the same day you call.</p>
     </div> <!-- triple thingy one -->
 
+    <div class="row visible-xs">
+      <hr class="col-xs-6 col-xs-push-3">
+    </div>
+    
     <div class="col-sm-4">
-      <h2 class="text-center">Contact Aloop</h2>
+      <h3 class="text-center">Contact Aloop</h3>
       <p>We might not keep regular office hours, but your business is still very important to us.</p>
       <p>Please contact us by postal service, <a href="mailto:sales@aloop.com">email</a>. We will attempt to respond to all inquiries within 24 hours.</p>
       <p>We are located in the USA Mountain Time Zone (GMT-7hrs).</p>
     </div> <!-- triple thingy one -->
 
+    <div class="row visible-xs">
+      <hr class="col-xs-6 col-xs-push-3">
+    </div>
+
     <div class="col-sm-4">
-      <h2 class="text-center">Overseas Orders</h2>
+      <h3 class="text-center">Overseas Orders</h3>
       <p>Overseas orders are no problem!</p>
       <p>We've sold thousands of our Aloop 4SMX kits to customers in over 40 countries! Most shipments are sent via US Mail Global Express Mail, and can arrive in under 1 week, no matter where in the world you live.</p>
     </div> <!-- triple thingy one -->
   </div> <!-- triple thingy row -->
 
-  <div class="row text-center" style="margin-top: 30px">
-    <p><a href="mailto:sales@aloop.com">sales@aloop.com</a>  |  PO Box 412, Sedalia, CO 80135, USA | <a href="www.aloop.com">www.aloop.com</a></p>
+  <div class="row text-center footer-bottom">
+    <p><a href="mailto:sales@aloop.com">sales@aloop.com</a>
+    <span class="hidden-xs">  |  </span><br class="visible-xs">
+    PO Box 412, Sedalia, CO 80135, USA
+    <span class="hidden-xs">  |  </span><br class="visible-xs">
+    <a href="www.aloop.com">www.aloop.com</a></p>
   </div> <!-- title -->
 
 

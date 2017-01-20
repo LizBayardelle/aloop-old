@@ -1,17 +1,41 @@
-<h2>Sign up</h2>
+<div class="row devise-page" style="padding-top: 40px">
+	<div class="col-xs-12 col-sm-6 col-sm-push-3 blue-box text-center">
+		<div class="row">
+			<h2>Create an Account</h2>
+			<p class="col-xs-10 col-xs-push-1">New to Aloop? Welcome to the family!<br>Create an account here to get started.</p>
+		</div>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
+		<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+		  <%= f.error_notification %>
 
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-    <%= f.input :password, required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
-    <%= f.input :password_confirmation, required: true %>
-  </div>
+		  <div class="form-inputs text-left">
+		  		<div class="form-group col-xs-6">
+				    <%= f.label :first_name %>
+				    <%= f.email_field :first_name, class: "form-control" %>
+			    </div>
+			    <div class="form-group col-xs-6">
+				    <%= f.label :last_name %>
+				    <%= f.email_field :last_name, class: "form-control" %>
+			    </div>
+			  	<div class="form-group col-xs-12">
+				    <%= f.label :email %>
+				    <%= f.email_field :email, required: false, autofocus: true, class: "form-control" %>
+			    </div>
+			  	<div class="form-group col-xs-12">
+				    <%= f.label :password %>
+		    		<%= f.password_field :password, class: "form-control", required: true, hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length) %>
+	    		</div>
+	    		<div class="form-group col-xs-12">
+	    			<%= f.label "Confirm Your Password" %>
+				    <%= f.password_field :password_confirmation, required: true, class: "form-control" %>
+			    </div>
+		  </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
-  </div>
-<% end %>
+		  <div class="form-actions">
+		    <%= f.button :submit, "Create My Account" %>
+		  </div>
+		<% end %>
 
-<%= render "devise/shared/links" %>
+		<%= render "devise/shared/links" %>
+	</div> <!-- blue box -->
+</div> <!-- row -->

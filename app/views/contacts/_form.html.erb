@@ -1,0 +1,56 @@
+<%= simple_form_for(@contact) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs text-left">
+    <div class="form-group col-sm-6">
+      <%= f.label :first_name %><br>
+      <% if current_user %>
+        <%= f.text_field :first_name, value: current_user.first_name, class: "form-control" %>
+      <% else %>
+        <%= f.text_field :first_name, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :last_name %><br>
+      <% if current_user %>
+        <%= f.text_field :last_name, value: current_user.last_name, class: "form-control" %>
+      <% else %>
+        <%= f.text_field :last_name, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :phone %><br>
+      <% if current_user %>
+        <%= f.text_field :phone, value: current_user.phone, class: "form-control" %>
+      <% else %>
+        <%= f.text_field :phone, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group col-sm-6">
+      <%= f.label :email %><br>
+      <% if current_user %>
+        <%= f.text_field :email, value: current_user.email, class: "form-control" %>
+      <% else %>
+        <%= f.text_field :email, class: "form-control" %>
+      <% end %>
+    </div>
+
+    <div class="form-group col-sm-12">
+      <%= f.label :message %><br>
+      <%= f.text_area :message, class: "form-control" %>
+    </div>
+
+    <div class="form-group col-sm-12">
+      <%= f.label "Preferred Contact Method" %>
+      <%= f.select :preferred_contact_method, options_for_select(["Email","Phone"]), {}, class: "form-control" %>
+    </div>
+
+    <div class="actions text-center">
+      <%= f.submit "Send Message", class: "btn" %>
+    </div>
+  </div> <!-- form -->
+
+<% end %>
