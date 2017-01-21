@@ -90,9 +90,8 @@ a:link { color: $color-blue; text-decoration: none; }
 a:visited { color: $color-blue; }
 a:hover { color: $color-red; text-decoration: underline; }
 a:active { color: $color-red; }
-a:focus, a:active {
-   outline: none !important;
-}
+a:focus, a:active { outline: none !important; }
+.inline-block { display: inline-block; }
 
 textarea:focus,
 input[type="text"]:focus,
@@ -352,6 +351,22 @@ Content Pages
 	margin: 20px 0 20px 0;
 	border-radius: 15px;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	overflow: hidden;
+}
+
+@media screen and (max-width: 768px) {
+	.black-box {
+		margin-left: 30px;
+		margin-right: 30px;
+	}
+}
+
+.black-box h2 {
+	margin-top: 10px;
+}
+
+.no-padding {
+	padding: 0px;
 }
 
 .black-box.hover:hover {
@@ -450,6 +465,49 @@ th {
 	margin-top: 30px;
 	color: $color-blue;
 }
+
+.product-image-div {
+	width: 30%;
+	display: inline-block;
+	vertical-align: middle;
+	overflow: hidden;
+	margin-right: 1%;
+}
+
+.product-image-div img {
+	width: 100%;
+	height: auto;
+}
+
+.product-text-div {
+	width: 68%;
+	display: inline-block;
+	vertical-align: middle;
+}
+
+.product-text-div h2 {
+	font-size: 24px;
+}
+
+@media screen and (max-width: 768px) {
+	.product-image-div {
+		width: 30%;
+		margin: 20px auto 0 auto;
+		display: block;
+	}
+
+	.product-image-div img {
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+
+	.product-text-div {
+		width: 100%;
+		display: block;
+		padding: 0 30px 30px 30px;
+	}
+}
+
+
 
 
 

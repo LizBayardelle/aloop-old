@@ -7,4 +7,7 @@ class HomeController < ApplicationController
 
   def export
   end
+
+  def graphics
+  end
 end

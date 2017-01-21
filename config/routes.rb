@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   
+  get 'other/xr400mx'
+
   	devise_for :users, :controllers => { registrations: 'registrations' }
 	resources :users, only: [:show]
 	
@@ -8,6 +10,7 @@ Rails.application.routes.draw do
   
   	get 'home/info'
   	get 'home/export'
+    get 'home/graphics'
 
   	resources :contacts
   	put "contacts/:id/archive" => "contacts#archive", as: "archive_contact"
