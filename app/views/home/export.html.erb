@@ -1,8 +1,46 @@
 
 
-<div class="well">
-	<h1>Home#export</h1>
-	<p>Find me in app/views/home/export.html.erb</p>
+<div class="row text-center">
+	<div class="container">
+		<h2 style="margin-top: 50px">Exports</h2>
+		<h1>Overseas orders are no problem!</h1>
+		<div class="row"><h4 class="col-xs-12 col-md-8 col-md-push-2">We've sold thousands of our Aloop 4SMX kits to customers in over 40 countries! Most shipments are sent via US Mail Global Express Mail, and can arrive in under 1 week, no matter where in the world you live.</h4></div>
+		<h1 style="font-weight: 900; margin-top: 0px"><%= link_to new_contact_path, class: "no-underline" do %>Contact us today for a shipping&nbsp;quote!<% end %></h1>
+	</div> <!-- container -->
 </div>
 
-<%= link_to 'Client Login', new_user_session_path, class: "btn" %>
+<div class="row text-center">
+	<div class="row">
+		<div class="col-xs-10 col-xs-push-1 col-md-8 col-md-push-2">
+			<h4>We usually ship overseas orders via US Mail Global Express Mail service, and it takes about 3-5 days to reach Europe, and 7-10 days to reach Asia and Australia. Cost for Global Express Mail shipping is usually about US$150 per kit. The kit comes in two boxes so it does not travel as an oversize parcel. With Global Express Mail we can track the progress of the packages and it's been a very reliable method to get our products overseas.</h4>
+			<h4><strong>We also have 2 distributors outside the USA that stock Aloop 4SMX kits:</strong></h4>
+		</div> <!-- column -->
+	</div> <!-- row -->
+
+
+	<div class="row">
+		<%= link_to "http://www.dirtbike.at", class: "no-underline" do %>
+			<div class="col-xs-6 col-sm-3 col-sm-push-3 black-box hover" style="margin-right: 10px; margin-left: -10px">
+				<h2 style="font-size: 40px">Austria</h2>
+				<%= image_tag "austria.jpg", style: "width: 100px; margin: 5px 0 10px 0", alt: "Dirt Bike Offroad" %>
+				<h4>Dirt Bike Offroad</h4>
+			</div> <!-- distributor link -->
+		<% end %>
+
+		<%= link_to "http://www.chsports.com", class: "no-underline" do %>
+			<div class="col-xs-6 col-sm-3 col-sm-push-3 black-box hover" style="margin-left: 10px">
+				<h2 style="font-size: 40px">Japan</h2>
+				<%= image_tag "japan.jpg", style: "width: 200px; margin: 40px 0 35px 0", alt: "Chane Sports" %>
+				<h4>Chane Sports</h4>
+			</div> <!-- distributor link -->
+		<% end %>
+	</div> <!-- row -->
+
+	<div class="row">
+		<div class="container">
+			<%= image_tag "tire_world.jpg", style: "width: 40%; margin-top: 30px; max-width: 350px", alt: "World globe with tire tracks across it." %>
+		</div>
+	</div>
+</div> <!-- row -->
+
+

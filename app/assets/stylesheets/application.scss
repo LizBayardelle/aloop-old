@@ -341,12 +341,16 @@ Content Pages
 	text-decoration: none !important;
 }
 
-.contact-formats .col-xs-10 {
+.black-box {
 	border: thin solid black;
 	padding: 20px;
 	margin: 20px 0 20px 0;
 	border-radius: 15px;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+.black-box.hover:hover {
+	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 
 .contact-formats .ion {
@@ -375,7 +379,6 @@ td {
 	padding: 10px 15px 10px 15px;
 	border: thin solid black;
 }
-
 th {
 	padding: 0 0 5px 5px;
 }
