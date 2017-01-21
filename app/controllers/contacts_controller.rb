@@ -24,6 +24,9 @@ class ContactsController < ApplicationController
   # POST /contacts
   def create
     @contact = Contact.new(contact_params)
+    if current_user 
+      @contact.user = current_user
+    end
 
     if @contact.save
       redirect_to root_path, notice: "Your message has been sent!  We'll get back to you soon."

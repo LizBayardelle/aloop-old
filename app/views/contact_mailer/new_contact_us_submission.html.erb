@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,900" rel="stylesheet">
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>New Contact Us Submission</h1>
+
+     <h2 style="font-family: 'Roboto'; font-weight: 900">
+       From: 
+        <% if @contact.first_name && @contact.last_name %>
+          <%= @contact.first_name %> <%= @contact.last_name %>
+        <% end %>
+     </h2>
+
+     <h3 style="font-family: 'Roboto', sans-serif">
+        <strong>Phone: </strong><%= @contact.phone %>
+     </h3>
+     <% if @contact.preferred_contact_method == "Phone" %>
+        <p style="font-family: 'Roboto', sans-serif; font-weight: 300;">(Preferred)</p>
+     <% end %>
+
+    <h3 style="font-family: 'Roboto', sans-serif">
+        <strong>Email: </strong><%= mail_to @contact.email %>
+    </h3>
+    <% if @contact.preferred_contact_method == "Email" %>
+      <p style="font-family: 'Roboto', sans-serif">(Preferred)</p>
+    <% end %>
+
+    <h3 style="font-family: 'Roboto', sans-serif"><strong>Message: </strong></h3>
+    <p style="font-family: 'Roboto', sans-serif"><%= @contact.message %></p>
+  </body>
+</html>

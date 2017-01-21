@@ -1,0 +1,15 @@
+New Contact Us Submission
+
+=================================
+
+From: 
+    <% if @contact.first_name && @contact.last_name %>
+      <%= @contact.first_name %> <%= @contact.last_name %>
+    <% end %>
+
+
+Phone: <%= @contact.phone %><% if @contact.preferred_contact_method == "Phone" %> (Preferred)<% end %>
+
+Email: <%= mail_to @contact.email %><% if @contact.preferred_contact_method == "Email" %> (Preferred)<% end %>
+
+Message: <%= @contact.message %>
