@@ -1,0 +1,75 @@
+<p class="text-right" style="padding: 10px 20px 0 0"><%= link_to "Back to Kits Page", home_kits_path %></p>
+
+<div class="header-row row text-center">
+	<div class="container">
+		<h2>4SMX Kit for XR650L</h2>
+		<h3>This kit fits all XR650L's from 1988 thru 2000.</h3>
+		<h3><strong>Get one for your&nbsp;bike&nbsp;today!</strong></h3>
+	</div> <!-- container -->
+</div>
+
+<div class="black-border-row text-center row">
+	<div class="mini-pictures">
+		<a href="#popup-1" class="open-popup-link">
+			<%= image_tag "kit_3_1.jpg", alt: "4SMX Kit for XR650L", class: "mini-pictures active mini-picture-1" %>
+		</a>
+		<a href="#popup-2" class="open-popup-link">
+			<%= image_tag "kit_3_2.jpg", alt: "4SMX Kit for XR650L", class: "mini-pictures mini-picture-1" %>
+		</a>
+	</div> <!-- mini-pictures -->
+</div> <!-- black border row -->
+
+<div class="row product-row">
+	<div class="container">
+
+		<div class="text-center">
+			<h1>
+				<strong>Fits all XR650L's from 1988 thru 2000</strong>
+			</h1>
+		</div>
+
+		<div class="row">
+			<hr class="col-sm-6 col-sm-push-3">
+		</div>
+
+		<p>This exciting product features a 2 gallon tank, an all new motocross style seat, and CR radiator plastic with graphics. The new forward seating position drastically improves the bike's handling, and the kit is more than 3 inches narrower than the stock setup. Give your old scooter a new look with a cool Aloop 4SMX seat/tank kit.</p>
+		<p>The XR650L seat tank kit is 3 inches narrower than stock.</p>
+
+		<div class="row">
+			<hr class="col-sm-6 col-sm-push-3">
+		</div>
+
+		<div class="text-center">
+			<h1><strong>The ALOOP 4SMX XR650L seat/tank kit costs just $499 plus shipping and is available online.</strong></h1>
+			<div class="btn cta"><%= link_to "Buy Now" %></div>
+		</div>
+
+		<div class="row">
+			<hr class="col-sm-6 col-sm-push-3">
+		</div>
+
+	</div> <!-- container -->
+</div> <!-- row -->
+
+<div class="container">
+	<%= render "home/cta" %>
+</div>
+
+<p class="text-center"><%= link_to "Back to Kits Page", home_kits_path %></p>
+
+
+
+<script type="text/javascript">
+	$('.open-popup-link').magnificPopup({
+	  type:'inline',
+	  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+	});
+</script>
+
+<div id="popup-1" class="image-popup mfp-hide text-center">
+  <%= image_tag "kit_3_1.jpg", alt: "4SMX Kit for XR650L", class: "popup-picture" %>
+</div>
+
+<div id="popup-2" class="image-popup mfp-hide text-center">
+  <%= image_tag "kit_3_2.jpg", alt: "4SMX Kit for XR650L", class: "popup-picture" %>
+</div>

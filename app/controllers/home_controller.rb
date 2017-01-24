@@ -8,6 +8,6 @@ class HomeController < ApplicationController
   def export
   end
 
-  def graphics
+  def kits
   end
 end
