@@ -642,6 +642,7 @@ Kits Home Page
 	border-top: solid thick black;
 	border-bottom: solid thick black;
 	margin-top: 20px;
+	overflow-x: scroll;
 }
 
 .mini-pictures img {
@@ -649,6 +650,12 @@ Kits Home Page
 	margin-right: 10px;
 	height: 100px;
 	opacity: .7;
+}
+
+@media screen and (max-width: 768px) {
+	.mini-pictures img {
+		height: 80px;
+	}
 }
 
 .mini-pictures img:hover {
