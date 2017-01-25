@@ -90,6 +90,7 @@ h2 {
 }
 h3 { font-family: $font-serif }
 p { font-size: 16px }
+@media screen and (max-width: 768px) { p { padding: 0 10px 0 10px; } }
 label {text-transform: capitalize }
 a:link { color: $color-blue; text-decoration: none; }
 a:visited { color: $color-blue; }
@@ -244,7 +245,7 @@ Main Nav
     background-color: rgba(231, 231, 231, 1);
 }
 #main-nav.navbar-default .navbar-toggle {
-    border-color: black;
+    border-color: white;
 }
 #main-nav.navbar-default .navbar-toggle:hover,
 #main-nav.navbar-default .navbar-toggle:focus {
@@ -252,7 +253,7 @@ Main Nav
     border-color: $color-red;
 }
 #main-nav.navbar-default .navbar-toggle .icon-bar {
-    background-color: black;
+    background-color: white;
 }
 #main-nav.navbar-default .navbar-toggle:hover .icon-bar,
 #main-nav.navbar-default .navbar-toggle:focus .icon-bar {

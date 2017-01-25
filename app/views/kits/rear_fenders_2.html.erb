@@ -1,2 +1,137 @@
-<h1>Kits#rear_fenders_2</h1>
-<p>Find me in app/views/kits/rear_fenders_2.html.erb</p>
+<p class="text-right" style="padding: 10px 20px 0 0"><%= link_to "Back to Kits Page", home_kits_path %></p>
+
+<div class="header-row row text-center">
+	<div class="container">
+		<h2>Aloop XR600 / XR650L Motocross Rear Fenders</h2>
+		<h3>Fits all Honda <strong>XR600R</strong> (1985-2000), <strong>XR650L</strong> (1993-2014), <strong>XR250R</strong> (1986-1995), <strong>XR250L</strong> (1991-1996), and <strong>XR350R</strong> (1985).</h3>
+	</div> <!-- container -->
+</div>
+
+<div class="black-border-row text-center row">
+	<div class="mini-pictures">
+		<a href="#popup-1" class="open-popup-link">
+			<%= image_tag "fender_2.jpg", alt: "Aloop XR600/XR650L Rear Fender" %>
+		</a>
+		<a href="#popup-2" class="open-popup-link">
+			<%= image_tag "fender_2_2.jpg", alt: "Aloop XR600/XR650L Rear Fender", class: "mini-pictures mini-picture-1" %>
+		</a>
+	</div> <!-- mini-pictures -->
+</div> <!-- black border row -->
+
+<div class="row product-row">
+	<div class="container">
+
+		<p>These high quality injection molded fenders will give your XR an aggressive, modern look. They are made to match a CR-style fender profile, yet they mate perfectly with that difficult to fit XR under-fender and subframe.</p>
+
+		<p>Easily trimmed shorter for Supermoto applications, these fenders also fit numerous earlier XRs as well as the more current machines.  Available in Black, White, Orange, Bright Red or Fighting Red.</p>
+
+		<div class="row">
+			<hr class="col-sm-6 col-sm-push-3">
+		</div>
+
+		<div class="text-center">
+			<h1><strong>All fenders are now available online!</strong></h1>
+
+			<div class="row text-center">
+				<div class="col-sm-4 col-lg-2 col-lg-push-1">
+					<p>
+						<strong>Rear Fender 600, Black</strong>
+						<br>Aloop Part #072-200bk
+						<br>Maier Part #12305
+						<br><strong>Price: $59.95</strong>
+					</p>
+					<div class="btn cta"><%= link_to "Buy Now" %></div>
+				</div> <!-- column -->
+
+				<div class="row visible-xs">
+					<hr class="col-sm-6 col-sm-push-3">
+				</div>
+
+				<div class="col-sm-4 col-lg-2 col-lg-push-1">
+					<p>
+						<strong>Rear Fender 600, Fighting Red</strong>
+						<br>Aloop Part #072-200fird
+						<br>Maier Part #12305
+						<br><strong>Price: $59.95</strong>
+					</p>
+					<div class="btn cta"><%= link_to "Buy Now" %></div>
+				</div> <!-- column -->
+
+				<div class="row visible-xs">
+					<hr class="col-sm-6 col-sm-push-3">
+				</div>
+
+				<div class="col-sm-4 col-lg-2 col-lg-push-1">
+					<p>
+						<strong>Rear Fender 600, White</strong>
+						<br>Aloop Part #072-200wh
+						<br>Maier Part #12305
+						<br><strong>Price: $59.95</strong>
+					</p>
+					<div class="btn cta"><%= link_to "Buy Now" %></div>
+				</div> <!-- column -->
+
+				<div class="row visible-xs visible-sm visible-md">
+					<hr class="col-sm-6 col-sm-push-3">
+				</div>
+
+				<div class="col-sm-4 col-lg-2 col-lg-push-1">
+					<p>
+						<strong>Rear Fender 600, Orange</strong>
+						<br>Aloop Part #072-200org
+						<br>Maier Part #12305
+						<br><strong>Price: $59.95</strong>
+					</p>
+					<div class="btn cta"><%= link_to "Buy Now" %></div>
+				</div> <!-- column -->
+
+				<div class="row visible-xs">
+					<hr class="col-sm-6 col-sm-push-3">
+				</div>
+
+				<div class="col-sm-4 col-lg-2 col-lg-push-1">
+					<p>
+						<strong>Rear Fender 600, Bright Red</strong>
+						<br>Aloop Part #072-200brrd
+						<br>Maier Part #12305
+						<br><strong>Price: $59.95</strong>
+					</p>
+					<div class="btn cta"><%= link_to "Buy Now" %></div>
+				</div> <!-- column -->
+
+				<div class="row visible-xs">
+					<hr class="col-sm-6 col-sm-push-3">
+				</div>
+
+			</div> <!-- row inner -->
+		</div> <!-- text center row outer -->
+
+		<div class="row">
+			<hr class="col-sm-6 col-sm-push-3">
+		</div>
+
+	</div> <!-- container -->
+</div> <!-- row -->
+
+<div class="container">
+	<%= render "home/cta" %>
+</div>
+
+<p class="text-center"><%= link_to "Back to Kits Page", home_kits_path %></p>
+
+
+
+<script type="text/javascript">
+	$('.open-popup-link').magnificPopup({
+	  type:'inline',
+	  midClick: true // Allow opening popup on middle mouse click. Always set it to true if you don't provide alternative source in href.
+	});
+</script>
+
+<div id="popup-1" class="image-popup mfp-hide text-center">
+  <%= image_tag "fender_1.jpg", alt: "Aloop XR600/XR650L Rear Fender", class: "popup-picture" %>
+</div>
+
+<div id="popup-2" class="image-popup mfp-hide text-center">
+  <%= image_tag "fender_1_2.jpg", alt: "Aloop XR600/XR650L Rear Fender", class: "popup-picture" %>
+</div>
