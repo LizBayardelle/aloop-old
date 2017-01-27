@@ -34,20 +34,52 @@
         </div>
         <div class="collapse navbar-collapse navbar-menubuilder">
             <ul class="nav navbar-nav navbar-left">
-                <li><%= link_to home_kits_path do %><p class="inner">Kits</p><% end %></li>
-                <li><%= link_to home_export_path do %><p class="inner">Gallery</p><% end %></li>
-                <li><%= link_to home_export_path do %><p class="inner">Store</p><% end %></li>
-                <li><%= link_to home_info_path do %><p class="inner">Info</p><% end %></li>
+                <li><%= link_to home_kits_path do %>
+                  <p class="inner">Kits</p>
+                <% end %></li>
+
+                <li><%= link_to home_export_path do %>
+                  <p class="inner">Gallery</p>
+                <% end %></li>
+
+                <li><%= link_to products_path do %>
+                  <p class="inner">Store</p>
+                <% end %></li>
+
+                <li><%= link_to home_info_path do %>
+                  <p class="inner">Info</p>
+                <% end %></li>
+
                 <% if current_user && current_user.admin %>
-                  <li><%= link_to contacts_path do %><p class="inner">Messages</p><% end %></li>
+
+                  <li><%= link_to contacts_path do %>
+                    <p class="inner">Messages</p>
+                  <% end %></li>
+
                 <% else %>
-                  <li><%= link_to new_contact_path do %><p class="inner">Contact</p><% end %></li>
+
+                  <li><%= link_to new_contact_path do %>
+                    <p class="inner">Contact</p>
+                  <% end %></li>
+
                 <% end %>
-                <li><%= link_to home_export_path do %><p class="inner">Export</p><% end %></li>
+
+                <li><%= link_to home_export_path do %>
+                  <p class="inner">Export</p>
+                <% end %></li>
+
                 <% if current_user %>
-                  <li><%= link_to user_path(current_user) do %><p class="inner">My Account</p><% end %></li>
+
+                  <li><%= link_to user_path(current_user) do %>
+                    <p class="inner">My Account</p>
+                  <% end %></li>
+
                 <% else %>
-                  <li><%= link_to new_user_session_path do %><p class="inner">Login</p><% end %></li>
+
+                  <li><%= link_to new_user_session_path do %>
+                    <p class="inner">Login</p>
+                  <% end %></li>
+
                 <% end %>
             </ul>
         </div>

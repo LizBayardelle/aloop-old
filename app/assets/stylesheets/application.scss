@@ -45,6 +45,7 @@ $color-transparent-silver: rgba(205,205,205, 0.8);
 $color-transparent-black: rgba(0, 0, 0, 0.7);
 
 .color-blue { color: $color-blue }
+.color-red { color: $color-red }
 .color-silver { color: $color-silver }
 .color-transparent-white { color: $color-transparent-white }
 
@@ -149,7 +150,12 @@ input[type="color"]:focus,
 .alert-success { border-color: $color-blue; }
 .alert-warning, .alert-danger { border-color: $color-red; }
 
-
+#tag_cloud {
+  line-height: 1.6em;
+  .s { font-size: 0.8em; }
+  .m { font-size: 1.2em; }
+  .l { font-size: 1.8em; }
+}
 
 
 
@@ -656,6 +662,19 @@ Kits Home Page
 	border-bottom: solid thick black;
 	margin-top: 20px;
 	overflow-x: scroll;
+	box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
+
+.black-border-row.product-row {
+	padding: 10px 0 20px 0;
+}
+
+.black-border-row.product-row a:hover {
+	text-decoration: none;
+}
+
+.black-border-row.product-row a:hover small {
+	color: $color-red !important;
 }
 
 .mini-pictures img {

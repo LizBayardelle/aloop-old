@@ -1,0 +1,64 @@
+<div class="text-right">
+  <% if current_user && current_user.admin %>
+    <%= link_to 'New Product', new_product_path, style: "padding: 15px" %>
+  <% end %>
+</div> <!-- right nav -->
+
+<div class="header-row row text-center">
+  <h2>Aloop Store</h2>
+
+  <div class="row">
+    <div id="tag_cloud" class="col-sm-4 col-sm-push-4">
+      <% tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| %>
+        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+      <% end %>
+    </div> <!-- tag cloud -->
+  </div> <!-- tag cloud row -->
+
+  <%= image_tag "tire_tracks.jpg", class: "tracks", alt: "Tire track marks", style: "max-height: 80px; width: auto" %>
+</div> <!-- header row -->
+
+
+<% @products.each do |product| %>
+
+  <div class="product-row black-border-row row" style="margin-bottom: 60px">
+    <div class="container">
+      <div class="col-sm-3 text-center">
+        <%= image_tag product.image.url, alt: product.name, style: "padding: 20px; max-width: 100%" %>
+
+        <p>
+          <%= product.aloop_number %><% if product.size != "" %>, <%= product.size %><% end %>  
+        </p>
+
+        <h3><strong>$<%= number_with_precision(product.price, precision: 2) %></strong></h3>
+      </div> <!-- image -->
+
+      <div class="col-sm-9">
+        <h1>
+          <%= link_to product do %>
+            <%= product.name %>
+          <% end %>
+          <% if current_user && current_user.admin %>
+              <%= link_to edit_product_path(product) do %>
+                <small><i class="icon ion-edit"></i></small>
+              <% end %>
+              <%= link_to product_path(product), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <small><i class="icon ion-trash-a"></i></small>
+              <% end %>
+          <% end %>
+        </h1>
+          <p><strong><%= product.tag_line %></strong></p>
+          <p><%= product.description %></p>
+          <p><em><%= product.application_notes %></em></p>
+          <% if product.tag_list != [] %>
+            <p><strong>Tags: </strong><%= raw product.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+          <% end %>
+
+          <div class="btn cta"><%= link_to "Add to Cart" %></div>
+      </div> <!-- info -->
+    </div> <!-- page container -->
+  </div> <!-- product row -->
+
+<% end %> <!-- each ends -->
+
+
