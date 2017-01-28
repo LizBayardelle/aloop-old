@@ -1,10 +1,19 @@
-<div class="row text-center header-row">
-	<h2 style="padding-bottom: 0px">Aloop Kits</h2>
-	<h3 style="margin-bottom: 50px">Click a picture for more information.</h3>
-</div> <!-- header row -->
+<div class="hero-image-row">
+  <div class="hero-image-outer text-center">
+    <div class="hero-image-inner text-center">
+      <%= image_tag "polaris_5.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
+    </div> <!-- hero-image-inner -->
+  </div> <!-- hero-image-inner -->
+</div> <!-- row -->
+
+<div class="overlap-hero-image">
+  <div class="index-text row">
+    <h2>Aloop Kits</h2>
+  </div> <!-- index text row -->
+</div> <!-- overlap hero image -->
 
 
-<div class="row black-border-row text-center">
+<div class="row black-border-row text-center" style="margin-top: 0px">
 	<%= link_to kits_XR250_XR400_path do %>
 		<div class="col-sm-4 all-kit-box">
 			<div class="col-sm-4 kit-text-box">

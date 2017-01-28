@@ -43,7 +43,7 @@
                   <p class="inner">Kits</p>
                 <% end %></li>
 
-                <li><%= link_to home_export_path do %>
+                <li><%= link_to photos_path do %>
                   <p class="inner">Gallery</p>
                 <% end %></li>
 
@@ -53,6 +53,10 @@
 
                 <li><%= link_to home_info_path do %>
                   <p class="inner">Info</p>
+                <% end %></li>
+
+                <li><%= link_to home_export_path do %>
+                  <p class="inner">Export</p>
                 <% end %></li>
 
                 <% if current_user && current_user.admin %>
@@ -69,9 +73,6 @@
 
                 <% end %>
 
-                <li><%= link_to home_export_path do %>
-                  <p class="inner">Export</p>
-                <% end %></li>
 
             </ul>
         </div>

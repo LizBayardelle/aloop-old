@@ -137,18 +137,13 @@ input[type="color"]:focus,
 }
 
 .alert {
-	border: solid thick $color-silver;
-	border-left: none;
-	border-right: none;
-	background-color: white;
+	border: none;
+	background-color: $color-transparent-black;
 	border-radius: 0;
-	color: black;
+	color: white;
 	font-weight: 900;
 	font-size: 24px;
 }
-
-.alert-success { border-color: $color-blue; }
-.alert-warning, .alert-danger { border-color: $color-red; }
 
 #tag_cloud {
   line-height: 1.6em;
@@ -381,11 +376,6 @@ footer h2 {
 Content Pages
 ==============================================
 */
-
-.index-text {
-	color: white; 
-	margin: 300px 30px 0 30px;
-}
 
 @media screen and (max-width: 1100px) {
 	.index-text {
@@ -839,13 +829,30 @@ Hero Images
  }
 
  .overlap-hero-image {
-   margin-top: -600px;
    height: 600px;
    position: relative;
    z-index: 10;
+   width: 100%;
+   margin-top: -600px;
  }
 
 
+.index-text {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+	color: white; 
+	margin: 300px 0px 0 0px;
+	padding: 15px 30px 15px 30px;
+	background-color: $color-transparent-black;
+	font-size: 20px;
+	text-align: right;
+}
+
+.index-text h2 {
+	margin: 0;
+	padding: 0;
+}
 
 
 

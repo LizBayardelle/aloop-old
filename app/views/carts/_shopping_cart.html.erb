@@ -15,4 +15,56 @@
   <% @order_items.each do |order_item| %>
     <%= render 'carts/cart_row', product: order_item.product, order_item: order_item, show_total: true %>
   <% end %>
+
+
+<div class="total-row row">
+  <div class="container">
+
+    <div class="col-sm-6 text-left">
+      <div class="choice-box in-CO">
+        <p>I live in Colorado.</p>
+      </div> <!-- choice box -->
+      <div class="choice-box out-CO">
+        <p>I live outside Colorado.</p>
+      </div> <!-- choice box -->
+
+      <% order_tax_rate = 0 %>
+    </div> <!-- column -->
+
+    <div class="col-sm-6 text-right">
+      <% order_subtotal = 0 %>
+      <% @order_items.each do |item| %>
+        <% order_subtotal += item.unit_price %>
+      <% end %>
+
+      <h4><strong>Cart Subtotal: <span class="color-red">
+        <%= number_to_currency order_subtotal %>  
+      </span></strong></h4>
+
+      <% order_tax = order_tax_rate * order_subtotal %>
+
+      <h4><strong>Tax: <span class="color-red">
+        <%= number_to_currency order_tax %> 
+      </span></strong></h4>
+
+      <h4><strong>Total: <span class="color-red">
+        <%= number_to_currency order_subtotal %>  
+      </span></strong></h4>
+    </div> <!-- column -->
+  </div> <!-- container -->
+</div> <!-- total row -->
+
+<script type="text/javascript">
+  $(document).ready(function() {
+    $(".in-CO").click(function() {
+      $(".in-CO").addClass("active");
+      $(".out-CO").removeClass("active");
+    });
+    $(".out-CO").click(function() {
+      $(".out-CO").addClass("active");
+      $(".in-CO").removeClass("active");
+    })
+  });
+</script>
+
 <% end %>

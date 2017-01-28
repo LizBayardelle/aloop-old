@@ -1,7 +1,18 @@
-<div class="row header-row text-center">
-	<h2 style="margin-bottom: 40px"><%= @user.first_name %>'s Cart</h2>
-</div>
+<div class="hero-image-row">
+  <div class="hero-image-outer text-center">
+    <div class="hero-image-inner text-center">
+      <%= image_tag "polaris_7.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
+    </div> <!-- hero-image-inner -->
+  </div> <!-- hero-image-inner -->
+</div> <!-- row -->
 
-<div class="shopping-cart">
+<div class="overlap-hero-image">
+  <div class="index-text row">
+    <h2><%= @user.first_name %>'s Cart</h2>
+  </div> <!-- index text row -->
+</div> <!-- overlap hero image -->
+
+<div class="shopping-cart" style="margin-top: 50px">
   <%= render "shopping_cart" %>
 </div>
+
