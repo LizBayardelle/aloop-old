@@ -21,6 +21,11 @@
 <body>
 
 
+<div class="cart-text cart-text-row row text-right">
+    <%= render 'layouts/cart_text' %>
+</div>
+
+                
 
 <!-- MENU GOES HERE -->
 <div id="main-nav" class="navbar navbar-default navbar-static-top" role="navigation">
@@ -68,19 +73,6 @@
                   <p class="inner">Export</p>
                 <% end %></li>
 
-                <% if current_user %>
-
-                  <li><%= link_to user_path(current_user) do %>
-                    <p class="inner">My Account</p>
-                  <% end %></li>
-
-                <% else %>
-
-                  <li><%= link_to new_user_session_path do %>
-                    <p class="inner">Login</p>
-                  <% end %></li>
-
-                <% end %>
             </ul>
         </div>
     </div>

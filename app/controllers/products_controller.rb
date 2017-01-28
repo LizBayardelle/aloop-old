@@ -5,8 +5,10 @@ class ProductsController < ApplicationController
   def index
     if params[:tag]
       @products = Product.tagged_with(params[:tag])
+      @order_item = current_order.order_items.new
     else
       @products = Product.where(active: true)
+      @order_item = current_order.order_items.new
     end
   end
 

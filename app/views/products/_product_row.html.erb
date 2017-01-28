@@ -1,0 +1,45 @@
+  <div class="product-row black-border-row row" style="margin-bottom: 60px">
+    <div class="container">
+      <div class="col-sm-3 text-center">
+        <%= image_tag product.image.url, alt: product.name, style: "padding: 20px; max-width: 100%" %>
+
+        <p>
+          <%= product.aloop_number %><% if product.size != "" %>, <%= product.size %><% end %>  
+        </p>
+
+        <h3><strong>$<%= number_with_precision(product.price, precision: 2) %></strong></h3>
+      </div> <!-- image -->
+
+      <div class="col-sm-9">
+        <h1>
+          <%= link_to product do %>
+            <%= product.name %>
+          <% end %>
+          <% if current_user && current_user.admin %>
+              <%= link_to edit_product_path(product) do %>
+                <small><i class="icon ion-edit"></i></small>
+              <% end %>
+              <%= link_to product_path(product), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                <small><i class="icon ion-trash-a"></i></small>
+              <% end %>
+          <% end %>
+        </h1>
+          <p><strong><%= product.tag_line %></strong></p>
+          <p><%= product.description %></p>
+          <p><em><%= product.application_notes %></em></p>
+          <% if product.tag_list != [] %>
+            <p><strong>Tags: </strong><%= raw product.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></p>
+          <% end %>
+
+          <%= form_for order_item, remote: true do |f| %>
+            <div class="input-group">
+              <%= f.number_field :quantity, value: 1, class: "form-control", min: 1, style: "width: 80px; height: 40px; margin-right: 20px; margin-top: 5px; display: inline-block" %>
+              <div style="display: inline-block">
+                <%= f.hidden_field :product_id, value: product.id %>
+                <%= f.submit "Add to Cart", class: "btn", style: "margin-top: 0px" %>
+              </div>
+            </div>
+          <% end %>
+      </div> <!-- info -->
+    </div> <!-- page container -->
+  </div> <!-- product row -->

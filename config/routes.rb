@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  
+
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]
 
@@ -22,6 +22,8 @@ Rails.application.routes.draw do
 
   resources :products
   get 'tags/:tag', to: 'products#index', as: :tag
+  resources :order_items, only: [:create, :update, :destroy]
+  resource :cart, only: [:show]
 
   resources :contacts
   put "contacts/:id/archive" => "contacts#archive", as: "archive_contact"

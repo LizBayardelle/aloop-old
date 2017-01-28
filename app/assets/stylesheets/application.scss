@@ -167,10 +167,52 @@ input[type="color"]:focus,
 
 /*
 ==============================================
-Main Nav
+Cart Row
 ==============================================
 */
 
+.cart-text-row {
+	background: black;
+	width: 100%;
+	margin: 0;
+	padding: 15px 15px 5px 0;
+}
+
+.cart-text {
+	position: relative;
+	z-index: 100;
+	margin-top: 0px;
+
+}
+
+.cart-text a {
+	color: white;
+}
+
+.cart-text p {
+	font-weight: 900;
+	color: $color-red;
+}
+
+.cart-text p a:hover {
+	color: $color-red;
+	text-decoration: none !important;
+}
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Main Nav
+==============================================
+*/
 #main-nav {
 	position: absolute;
 	margin-top: 50px;
@@ -178,7 +220,7 @@ Main Nav
 }
 
 .main-nav-background {
-	background-color: $color-silver;
+	background-color: white;
 	height: 180px;
 }
 
@@ -289,8 +331,8 @@ footer {
 
 .footer-stripe {
 	background-color: $color-transparent-black;
-	border-top: solid 10px $color-red;
-	border-bottom: solid 10px $color-red;
+	border-top: solid 10px $color-transparent-black;
+	border-bottom: solid 10px $color-transparent-black;
 	background-clip: content-box;
 	padding: 5px 0 5px 0;
 	color: white;
@@ -298,7 +340,7 @@ footer {
 
 .footer-bottom {
 	margin-top: 30px;
-	background-color: $color-transparent-black;
+	background-color: black;
 	color: white;
 	font-weight: 900;
 	padding: 25px 0 15px 0;
@@ -359,11 +401,11 @@ Content Pages
 
 .header-row h1 {
 	font-size: 50px;
-	margin-top: 50px;
+	margin-top: 0px;
 }
 
 .header-row h2 {
-	margin-top: 50px;
+	margin-top: 0px;
 }
 
 .header-row .tracks {
@@ -576,13 +618,30 @@ Kits Home Page
 	vertical-align: middle;
 	margin-left: auto;
 	margin-right: auto;
-	opacity: 1;
-	-webkit-transition: .3s ease-in-out;
-	transition: .3s ease-in-out;
+	opacity: .45;
+
+}
+
+
+@media screen and (max-width: 768px) {
+	.all-kit-box img {
+		min-width: 100%;
+		height: auto !important;
+	}
+}
+
+@media only screen and (min-width : 1200px) {
+	.all-kit-box {
+		height: 350px;
+	}
+
+	.all-kit-box img {
+		margin-top: -250px;
+	}
 }
 
 .all-kit-box:hover img {
-	opacity: .35;
+	opacity: 1;
 }
 
 .kit-text-box {
@@ -597,7 +656,6 @@ Kits Home Page
 	z-index: 100;
 }
 
-
 .all-kit-box span {
 	height: 250px;
 	width: 1%;
@@ -611,15 +669,10 @@ Kits Home Page
 	display: inline-block;
 	vertical-align: middle;
 	font-size: 40px;
-	color: white;
-	   -webkit-text-stroke: 1px rgba(0,0,0,0.1);
-   	text-shadow:
-       2px 2px 0 #000,
-     -1px -1px 0 #000,  
-      1px -1px 0 #000,
-      -1px 1px 0 #000,
-       1px 1px 0 #000;
-	opacity: 1;
+	opacity: .7;
+	color: black;
+	-webkit-text-stroke: none;
+   	text-shadow: none;
 }
 
 .kit-text-box.replacement-parts h2 {
@@ -627,10 +680,16 @@ Kits Home Page
 }
 
 .all-kit-box:hover h2 {
-	opacity: .5;
-	color: black;
-	-webkit-text-stroke: none;
-   	text-shadow: none;
+	color: white;
+	-webkit-text-stroke: 1px rgba(0,0,0,0.1);
+   	text-shadow:
+       2px 2px 0 #000,
+     -1px -1px 0 #000,  
+      1px -1px 0 #000,
+      -1px 1px 0 #000,
+       1px 1px 0 #000;
+	opacity: 1;
+
 }
 
 @media screen and (max-width: 768px) {
@@ -648,8 +707,8 @@ Kits Home Page
 	}
 
 	.all-kit-box.replacement-parts img {
-		width: 100%;
-		height: auto;
+		height: 100%;
+		width: auto;
 	}
 }
 
@@ -706,6 +765,12 @@ Kits Home Page
 .image-popup img {
 	max-width: 90%;
 }
+
+
+
+
+
+
 
 
 
@@ -779,6 +844,39 @@ Hero Images
    position: relative;
    z-index: 10;
  }
+
+
+
+
+
+
+
+
+
+
+
+ /*
+==============================================
+Cart
+==============================================
+*/
+
+input[type=submit].submit-as-text {
+    padding: 0; 
+    background: none; 
+    border: none;
+    cursor: pointer;
+    -webkit-border-radius: none;
+    border-radius: none; 
+    color: $color-blue;
+    margin: 0;
+}
+
+
+
+
+
+
 
 
 
