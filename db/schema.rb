@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170129002703) do
+ActiveRecord::Schema.define(version: 20170129185745) do
 
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20170129002703) do
     t.datetime "updated_at",                         null: false
     t.boolean  "approved",           default: false
     t.text     "comments"
+    t.string   "kit"
   end
 
   add_index "photos", ["user_id"], name: "index_photos_on_user_id"

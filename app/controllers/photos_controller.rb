@@ -4,6 +4,9 @@ class PhotosController < ApplicationController
   # GET /photos
   def index
     @photos = Photo.all
+    @kit_1_photos = Photo.where(kit: "kit_1")
+    @kit_2_photos = Photo.where(kit: "kit_2")
+    @kit_3_photos = Photo.where(kit: "kit_3")
   end
 
   # GET /photos/1
@@ -55,6 +58,6 @@ class PhotosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def photo_params
-      params.require(:photo).permit(:image, :user_id, :approved, :comments)
+      params.require(:photo).permit(:image, :user_id, :approved, :comments, :kit)
     end
 end

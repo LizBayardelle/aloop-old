@@ -18,31 +18,118 @@
 
           <div class="btn"><%= link_to 'Share a Photo', new_photo_path %></div>
      </div> <!-- row -->
+</div> <!-- container -->
 
-     <% @photos.each do |photo| %>
+<div class="row" style="margin-bottom: 30px">
+     <ul class="nav nav-tabs">
+          <li id="kit_1_tab" class="active" style="margin-left: 50px"><a>Aloop XR250/XR400</a></li>
+          <li id="kit_2_tab"><a>Aloop XR600</a></li>
+          <li id="kit_3_tab"><a>Aloop SuperMotard and XR650L</a></li>
+     </ul>
+</div> <!-- row -->
+     
+<div class="container">
+     <div class="kit_1_div kit">
+          <% @kit_1_photos.each do |photo| %>
 
-          <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
-               <a href="#<%= photo.id %>" class="open-popup-link">
-                    <div class="snapshot">
-                         <%= image_tag photo.image.url, alt: photo.user.last_name %>
-                    </div> <!-- snapshot -->
-               </a>
-          </div> <!-- column -->
+               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+                    <a href="#<%= photo.id %>" class="open-popup-link">
+                         <div class="snapshot">
+                              <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                         </div> <!-- snapshot -->
+                    </a>
+               </div> <!-- column -->
 
-          <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
-            <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
-            <% if !photo.user.admin %>
-               <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
-            <% end %>
-          <p><%= photo.comments %></p>
-          </div>     
-     <% end %>
+               <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+                    <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                    <% if !photo.user.admin %>
+                         <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+                    <% end %>
+               <p><%= photo.comments %></p>
+               <% if current_user && current_user.admin %>
+                    <%= link_to edit_photo_path(photo) do %>
+                         <small><i class="icon ion-edit"></i></small> Edit This Photo
+                   <% end %>
+               <% end %>
+               </div>     
+          <% end %>
+     </div> <!-- kit 1 div -->
 
-</div> <!-- page container -->
+     <div class="kit_2_div hidden">
+          <% @kit_2_photos.each do |photo| %>
+
+               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+                    <a href="#<%= photo.id %>" class="open-popup-link">
+                         <div class="snapshot">
+                              <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                         </div> <!-- snapshot -->
+                    </a>
+               </div> <!-- column -->
+
+               <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+                    <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                    <% if !photo.user.admin %>
+                         <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+                    <% end %>
+               <p><%= photo.comments %></p>
+               </div>     
+          <% end %>
+     </div> <!-- kit 2 div -->
+
+     <div class="kit_3_div hidden">
+          <% @kit_3_photos.each do |photo| %>
+
+               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+                    <a href="#<%= photo.id %>" class="open-popup-link">
+                         <div class="snapshot">
+                              <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                         </div> <!-- snapshot -->
+                    </a>
+               </div> <!-- column -->
+
+               <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+                    <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                    <% if !photo.user.admin %>
+                         <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+                    <% end %>
+               <p><%= photo.comments %></p>
+               </div>     
+          <% end %>
+     </div> <!-- kit 3 div -->
+
+</div> <!-- container -->
+
+
 
 <script type="text/javascript">
   $('.open-popup-link').magnificPopup({
     type:'inline',
     midClick: true
+  });
+  $(document).ready(function(){
+     $("#kit_1_tab").click(function(){
+          $("#kit_1_tab").addClass("active");
+          $("#kit_2_tab").removeClass("active");
+          $("#kit_3_tab").removeClass("active");
+          $(".kit_1_div").removeClass("hidden");
+          $(".kit_2_div").addClass("hidden");
+          $(".kit_3_div").addClass("hidden");
+     });
+     $("#kit_2_tab").click(function(){
+          $("#kit_1_tab").removeClass("active");
+          $("#kit_2_tab").addClass("active");
+          $("#kit_3_tab").removeClass("active");
+          $(".kit_1_div").addClass("hidden");
+          $(".kit_2_div").removeClass("hidden");
+          $(".kit_3_div").addClass("hidden");
+     });
+     $("#kit_3_tab").click(function(){
+          $("#kit_1_tab").removeClass("active");
+          $("#kit_2_tab").removeClass("active");
+          $("#kit_3_tab").addClass("active");
+          $(".kit_1_div").addClass("hidden");
+          $(".kit_2_div").addClass("hidden");
+          $(".kit_3_div").removeClass("hidden");
+     });
   });
 </script>

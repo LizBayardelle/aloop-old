@@ -8,6 +8,12 @@
 			<div class="form-group">
 				<%= f.input :image %>
 			</div> <!-- form-group -->
+
+			<div class="form-group">
+	          <%= f.label "Which product is this?" %><br>
+	          <%= f.select :kit, options_for_select([['XR250/XR400' ,'kit_1'], ['XR600', 'kit_2'], ['SuperMotard and XR650L', 'kit_3']]), class: "form-control" %>
+	        </div> <!-- form group -->
+
 			<div class="form-group">
 				<%= f.label :comments %>
 				<%= f.text_area :comments, class: "form-control" %>
