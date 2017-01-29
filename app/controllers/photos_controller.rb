@@ -22,9 +22,10 @@ class PhotosController < ApplicationController
   # POST /photos
   def create
     @photo = Photo.new(photo_params)
+    @photo.user = current_user
 
     if @photo.save
-      redirect_to @photo, notice: 'Photo was successfully created.'
+      redirect_to photos_path, notice: 'Your photo has been submitted. Check back soon to see it live!'
     else
       render :new
     end
@@ -32,8 +33,9 @@ class PhotosController < ApplicationController
 
   # PATCH/PUT /photos/1
   def update
+    @photo.update_attributes(approved: false)
     if @photo.update(photo_params)
-      redirect_to @photo, notice: 'Photo was successfully updated.'
+      redirect_to photos_path, notice: 'Your entry was successfully updated.'
     else
       render :edit
     end
@@ -53,6 +55,6 @@ class PhotosController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def photo_params
-      params.require(:photo).permit(:image, :user_id)
+      params.require(:photo).permit(:image, :user_id, :approved, :comments)
     end
 end

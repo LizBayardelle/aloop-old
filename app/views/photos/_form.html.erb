@@ -1,12 +1,22 @@
-<%= simple_form_for(@photo) do |f| %>
-  <%= f.error_notification %>
+<div class="blue-box" style="margin-top: 30px">
+	<h3 class="text-center">Want to brag about the awesome improvements to your bike? Submit your picture and/or story here. Once we see it, we'll share it with the world.</h3>
 
-  <div class="form-inputs">
-    <%= f.input :image %>
-    <%= f.association :user %>
-  </div>
+	<%= simple_form_for @photo, html: { multipart: true } do |f| %>
+		<%= f.error_notification %>
 
-  <div class="form-actions">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+		<div class="form-inputs">
+			<div class="form-group">
+				<%= f.input :image %>
+			</div> <!-- form-group -->
+			<div class="form-group">
+				<%= f.label :comments %>
+				<%= f.text_area :comments, class: "form-control" %>
+			</div> <!-- form group -->
+		</div>
+
+		<div class="form-actions text-center">
+			<%= f.submit "Share Your Photo", class: "btn" %><br>
+			<%= link_to 'Back', photos_path %>
+		</div>
+	<% end %>
+</div> <!-- blue box -->

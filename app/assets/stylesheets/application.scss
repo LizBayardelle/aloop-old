@@ -381,10 +381,18 @@ Content Pages
 	.index-text {
 		font-size: 40px;
 	}
+
+	.index-only-text {
+		font-size: 30px;
+	}
 }
 
 @media screen and (max-width: 768px) {
 	.index-text {
+		font-size: 30px;
+	}
+
+	.index-only-text {
 		font-size: 30px;
 	}
 }
@@ -567,6 +575,29 @@ th {
 		display: block;
 		padding: 0 30px 30px 30px;
 	}
+}
+
+
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Kits Home Page
+==============================================
+*/
+
+.snapshot img {
+	width: 100%;
+	border: thin black solid;
+	padding: 5px;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
 }
 
 

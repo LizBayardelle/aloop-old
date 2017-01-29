@@ -19,17 +19,22 @@
 </div> <!-- right nav -->
 
 <div class="header-row row text-center">
-  <h2>Aloop Store</h2>
-
   <div class="row">
-    <div id="tag_cloud" class="col-sm-4 col-sm-push-4">
-      <% tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| %>
-        <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-      <% end %>
-    </div> <!-- tag cloud -->
-  </div> <!-- tag cloud row -->
+    <div class="col-sm-8 col-sm-push-2">
+      <h3>Along with our game-changing 4SMX kits, we now carry other plastic parts to help convert your XR into a genuine 4SMX weapon.</h3>
 
-  <%= image_tag "tire_tracks.jpg", class: "tracks", alt: "Tire track marks", style: "max-height: 80px; width: auto" %>
+      <div class="row">
+        <div id="tag_cloud" class="col-sm-4 col-sm-push-4" style="margin-top: 20px">
+          <% tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+          <% end %>
+        </div> <!-- tag cloud -->
+      </div> <!-- tag cloud row -->
+
+      <h3><strong>Click on a tag above to sort through our products or browse the entire catalogue below.</strong></h3>
+    </div> <!-- column -->
+  </div> <!-- row -->
+
 </div> <!-- header row -->
 
 

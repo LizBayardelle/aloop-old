@@ -1,6 +1,17 @@
-<h1>Editing Photo</h1>
+<div class="hero-image-row">
+  <div class="hero-image-outer text-center">
+    <div class="hero-image-inner text-center">
+      <%= image_tag "polaris_10.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
+    </div> <!-- hero-image-inner -->
+  </div> <!-- hero-image-inner -->
+</div> <!-- row -->
 
-<%= render 'form' %>
+<div class="overlap-hero-image">
+  <div class="index-text row">
+    <h2>Edit Your Photo</h2>
+  </div> <!-- index text row -->
+</div> <!-- overlap hero image -->
 
-<%= link_to 'Show', @photo %> |
-<%= link_to 'Back', photos_path %>
+<div class="container">
+	<%= render 'form' %>
+</div> <!-- page container -->

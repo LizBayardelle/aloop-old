@@ -12,32 +12,37 @@
   </div> <!-- index text row -->
 </div> <!-- overlap hero image -->
 
-<p id="notice"><%= notice %></p>
+<div class="container">
+     <div class="row text-center">
+          <h3>Over the last 10 years we've sold almost 5,500 of our seat tank kits to avid XR pilots all around the world. Here are a few of the photos that our happy customer's have sent in. We hope you enjoy them as much as we did!</h3>
 
-<h1>Listing Photos</h1>
+          <div class="btn"><%= link_to 'Share a Photo', new_photo_path %></div>
+     </div> <!-- row -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Image</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+     <% @photos.each do |photo| %>
 
-  <tbody>
-    <% @photos.each do |photo| %>
-      <tr>
-        <td><%= photo.image %></td>
-        <td><%= photo.user %></td>
-        <td><%= link_to 'Show', photo %></td>
-        <td><%= link_to 'Edit', edit_photo_path(photo) %></td>
-        <td><%= link_to 'Destroy', photo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+          <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+               <a href="#<%= photo.id %>" class="open-popup-link">
+                    <div class="snapshot">
+                         <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                    </div> <!-- snapshot -->
+               </a>
+          </div> <!-- column -->
 
-<br>
+          <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+            <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+            <% if !photo.user.admin %>
+               <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+            <% end %>
+          <p><%= photo.comments %></p>
+          </div>     
+     <% end %>
 
-<%= link_to 'New Photo', new_photo_path %>
+</div> <!-- page container -->
+
+<script type="text/javascript">
+  $('.open-popup-link').magnificPopup({
+    type:'inline',
+    midClick: true
+  });
+</script>
