@@ -32,7 +32,7 @@
      <div class="kit_1_div kit">
           <% @kit_1_photos.each do |photo| %>
 
-               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
                     <a href="#<%= photo.id %>" class="open-popup-link">
                          <div class="snapshot">
                               <%= image_tag photo.image.url, alt: photo.user.last_name %>
@@ -58,7 +58,7 @@
      <div class="kit_2_div hidden">
           <% @kit_2_photos.each do |photo| %>
 
-               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
                     <a href="#<%= photo.id %>" class="open-popup-link">
                          <div class="snapshot">
                               <%= image_tag photo.image.url, alt: photo.user.last_name %>
@@ -79,7 +79,7 @@
      <div class="kit_3_div hidden">
           <% @kit_3_photos.each do |photo| %>
 
-               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1">
+               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
                     <a href="#<%= photo.id %>" class="open-popup-link">
                          <div class="snapshot">
                               <%= image_tag photo.image.url, alt: photo.user.last_name %>

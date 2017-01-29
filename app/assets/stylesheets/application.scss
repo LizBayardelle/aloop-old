@@ -589,7 +589,7 @@ th {
 
 /*
 ==============================================
-Kits Home Page
+Gallery
 ==============================================
 */
 
@@ -598,8 +598,12 @@ Kits Home Page
 	border: thin black solid;
 	padding: 5px;
 	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	max-height: 200px;
 }
 
+.big-div {
+	height: 200px;
+}
 
 
 
