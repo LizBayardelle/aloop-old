@@ -72,6 +72,11 @@
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
                <p><%= photo.comments %></p>
+               <% if current_user && current_user.admin %>
+                    <%= link_to edit_photo_path(photo) do %>
+                         <small><i class="icon ion-edit"></i></small> Edit This Photo
+                   <% end %>
+               <% end %>
                </div>     
           <% end %>
      </div> <!-- kit 2 div -->
@@ -93,6 +98,11 @@
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
                <p><%= photo.comments %></p>
+               <% if current_user && current_user.admin %>
+                    <%= link_to edit_photo_path(photo) do %>
+                         <small><i class="icon ion-edit"></i></small> Edit This Photo
+                   <% end %>
+               <% end %>
                </div>     
           <% end %>
      </div> <!-- kit 3 div -->
