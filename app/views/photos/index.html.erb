@@ -14,17 +14,17 @@
 
 <div class="container">
      <div class="row text-center">
-          <h3>Over the last 10 years we've sold almost 5,500 of our seat tank kits to avid XR pilots all around the world. Here are a few of the photos that our happy customer's have sent in. We hope you enjoy them as much as we did!</h3>
+          <h3 class="col-xs-12">Over the last 10 years we've sold almost 5,500 of our seat tank kits to avid XR pilots all around the world. Here are a few of the photos that our happy customer's have sent in. We hope you enjoy them as much as we did!</h3>
 
           <div class="btn"><%= link_to 'Share a Photo', new_photo_path %></div>
      </div> <!-- row -->
 </div> <!-- container -->
 
 <div class="row" style="margin-bottom: 30px">
-     <ul class="nav nav-tabs">
-          <li id="kit_1_tab" class="active" style="margin-left: 50px"><a>Aloop XR250/XR400</a></li>
-          <li id="kit_2_tab"><a>Aloop XR600</a></li>
-          <li id="kit_3_tab"><a>Aloop SuperMotard and XR650L</a></li>
+     <ul class="nav nav-tabs text-center">
+          <li id="kit_1_tab" class="active" style="margin-left: 50px"><a>Aloop<br class="visible-xs"> XR250/XR400</a></li>
+          <li id="kit_2_tab"><a>Aloop<br class="visible-xs"> XR600</a></li>
+          <li id="kit_3_tab"><a>Aloop SuperMotard<br class="visible-xs"> and XR650L</a></li>
      </ul>
 </div> <!-- row -->
      
@@ -45,13 +45,13 @@
                     <% if !photo.user.admin %>
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
-               <p><%= photo.comments %></p>
-               <% if current_user && current_user.admin %>
-                    <%= link_to edit_photo_path(photo) do %>
-                         <small><i class="icon ion-edit"></i></small> Edit This Photo
-                   <% end %>
-               <% end %>
-               </div>     
+                    <p><%= photo.comments %></p>
+                    <% if current_user && current_user.admin %>
+                         <%= link_to edit_photo_path(photo) do %>
+                              <small><i class="icon ion-edit"></i></small> Edit This Photo
+                        <% end %>
+                    <% end %>
+               </div>  <!-- mfp contents -->    
           <% end %>
      </div> <!-- kit 1 div -->
 
@@ -71,13 +71,13 @@
                     <% if !photo.user.admin %>
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
-               <p><%= photo.comments %></p>
-               <% if current_user && current_user.admin %>
-                    <%= link_to edit_photo_path(photo) do %>
-                         <small><i class="icon ion-edit"></i></small> Edit This Photo
-                   <% end %>
-               <% end %>
-               </div>     
+                    <p><%= photo.comments %></p>
+                    <% if current_user && current_user.admin %>
+                         <%= link_to edit_photo_path(photo) do %>
+                              <small><i class="icon ion-edit"></i></small> Edit This Photo
+                        <% end %>
+                    <% end %>
+               </div> <!-- mfp contents -->
           <% end %>
      </div> <!-- kit 2 div -->
 
@@ -97,13 +97,13 @@
                     <% if !photo.user.admin %>
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
-               <p><%= photo.comments %></p>
-               <% if current_user && current_user.admin %>
-                    <%= link_to edit_photo_path(photo) do %>
-                         <small><i class="icon ion-edit"></i></small> Edit This Photo
-                   <% end %>
-               <% end %>
-               </div>     
+                    <p><%= photo.comments %></p>
+                    <% if current_user && current_user.admin %>
+                         <%= link_to edit_photo_path(photo) do %>
+                              <small><i class="icon ion-edit"></i></small> Edit This Photo
+                        <% end %>
+                    <% end %>
+               </div> <!-- mfp contents -->
           <% end %>
      </div> <!-- kit 3 div -->
 
