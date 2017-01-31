@@ -1,0 +1,48 @@
+<h2 class="small-h2">New Gallery Submissions</h2>
+<p>Click on each picture to approve, edit, or reject it.</p>
+
+<% @unapproved_photos.each do |photo| %>
+   <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
+        <a href="#<%= photo.id %>" class="open-popup-link">
+             <div class="snapshot">
+                  <%= image_tag photo.image.url, alt: photo.user.last_name %>
+             </div> <!-- snapshot -->
+        </a>
+   </div> <!-- column -->
+
+   <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+        <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+        <p><%= photo.comments %></p>
+        <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+        <% if current_user && current_user.admin %>
+            <div class="row">
+            	<div class="col-xs-4 col-sm-2 col-sm-push-3">
+		            <%= link_to edit_photo_path(photo) do %>
+		                  <i class="icon large ion-edit"></i>
+		                  <br>Edit This Photo
+		            <% end %>
+	            </div> <!-- column -->
+	            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+		            <%= link_to approve_photo_path(photo), method: :put, style: "color: green" do %>
+		            	<i class="icon large ion-checkmark-round"></i>
+		            	<br>Approve This Photo
+		            <% end %>
+	            </div> <!-- column -->
+	            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+		            <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
+		            	<i class="icon large ion-trash-a"></i>
+		            	<br>Delete This Photo
+		            <% end %>
+	            </div> <!-- column -->
+            </div> <!-- approval row -->
+        <% end %>
+   </div>  <!-- mfp contents -->  
+<% end %>
+
+
+<script type="text/javascript">
+  $('.open-popup-link').magnificPopup({
+    type:'inline',
+    midClick: true
+  });
+</script>

@@ -1,25 +1,46 @@
 <div class="hero-image-row">
-  <div class="hero-image-outer text-center">
-    <div class="hero-image-inner text-center">
-      <%= image_tag "polaris_8.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
+    <div class="hero-image-outer text-center">
+        <div class="hero-image-inner text-center">
+            <%= image_tag "polaris_8.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
+        </div> <!-- hero-image-inner -->
     </div> <!-- hero-image-inner -->
-  </div> <!-- hero-image-inner -->
 </div> <!-- row -->
 
 <div class="overlap-hero-image">
-  <div class="index-text row">
-    <h2>My Account</h2>
-  </div> <!-- index text row -->
+    <div class="index-text row">
+        <% if current_user.admin %>
+            <h2>Admin Dashboard</h2>
+        <% else %>
+            <h2>My Account</h2>
+        <% end %>
+    </div> <!-- index text row -->
 </div> <!-- overlap hero image -->
 
 
 <div class="text-center header-row row" style="margin-top: 30px">
-	<p><%= link_to "Edit My Information", edit_user_registration_path %> | 
-	<%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></p>
+    <p>
+        <small><%= @user.first_name %> <%= @user.last_name %> | <%= @user.email %> | </strong><%= @user.phone %></small><br>
+        <%= link_to "Edit My Information", edit_user_registration_path %> | <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %><br>
+    </p>
 </div> <!-- centered header -->
 
 <div class="container">
-	<h4><strong>Client: </strong><%= @user.first_name %> <%= @user.last_name %></h4>
-	<h4><strong>Email Address: </strong><%= @user.email %></h4>
-	<h4><strong>Phone: </strong><%= @user.phone %></h4>
+    <% if current_user.admin %>
+        <%= render 'gallery_approvals' %>
+
+
+
+
+    <% else %>
+
+
+
+
+
+    <% end %>
 </div> <!-- page container -->
+
+
+
+
+

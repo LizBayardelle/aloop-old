@@ -30,6 +30,8 @@ Rails.application.routes.draw do
   put "contacts/:id/archive" => "contacts#archive", as: "archive_contact"
   put "contacts/:id/unarchive" => "contacts#unarchive", as: "unarchive_contact"
 
-  resources :photos  
+  resources :photos
+  put "photos/:id/approve" => "photos#approve", as: "approve_photo"
+  put "photos/:id/unapprove" => "photos#unapprove", as: "unapprove_photo"
   
 end

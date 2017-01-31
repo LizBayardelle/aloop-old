@@ -1,5 +1,8 @@
 <p>
-<% if current_user %>
+<% if current_user && current_user.admin %>
+	<%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path %>  |  
+  	<%= link_to "Admin Dashboard", user_path(current_user) %>
+<% elsif current_user %>
 	<%= link_to "#{current_order.order_items.size} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path %>  |  
   	<%= link_to "My Account", user_path(current_user) %>
 <% else %>

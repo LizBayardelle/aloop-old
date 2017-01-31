@@ -42,14 +42,31 @@
 
                <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
                     <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                    <p><%= photo.comments %></p>
                     <% if !photo.user.admin %>
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
-                    <p><%= photo.comments %></p>
                     <% if current_user && current_user.admin %>
-                         <%= link_to edit_photo_path(photo) do %>
-                              <small><i class="icon ion-edit"></i></small> Edit This Photo
-                        <% end %>
+                        <div class="row">
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to edit_photo_path(photo) do %>
+                                  <i class="icon large ion-edit"></i>
+                                  <br>Edit This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
+                              <i class="icon large ion-close"></i>
+                              <br>Unapprove This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
+                              <i class="icon large ion-trash-a"></i>
+                              <br>Delete This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                        </div> <!-- approval row -->
                     <% end %>
                </div>  <!-- mfp contents -->    
           <% end %>
@@ -68,15 +85,31 @@
 
                <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
                     <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                    <p><%= photo.comments %></p>
                     <% if !photo.user.admin %>
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
-                    <p><%= photo.comments %></p>
                     <% if current_user && current_user.admin %>
-                         <%= link_to edit_photo_path(photo) do %>
-                              <small><i class="icon ion-edit"></i></small> Edit This Photo
-                        <% end %>
-                    <% end %>
+                        <div class="row">
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to edit_photo_path(photo) do %>
+                                  <i class="icon large ion-edit"></i>
+                                  <br>Edit This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
+                              <i class="icon large ion-close"></i>
+                              <br>Unapprove This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
+                              <i class="icon large ion-trash-a"></i>
+                              <br>Delete This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                        </div> <!-- approval row -->
                </div> <!-- mfp contents -->
           <% end %>
      </div> <!-- kit 2 div -->
@@ -94,15 +127,31 @@
 
                <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
                     <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                    <p><%= photo.comments %></p>
                     <% if !photo.user.admin %>
                          <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
                     <% end %>
-                    <p><%= photo.comments %></p>
                     <% if current_user && current_user.admin %>
-                         <%= link_to edit_photo_path(photo) do %>
-                              <small><i class="icon ion-edit"></i></small> Edit This Photo
-                        <% end %>
-                    <% end %>
+                        <div class="row">
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to edit_photo_path(photo) do %>
+                                  <i class="icon large ion-edit"></i>
+                                  <br>Edit This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
+                              <i class="icon large ion-close"></i>
+                              <br>Unapprove This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                            <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
+                              <i class="icon large ion-trash-a"></i>
+                              <br>Delete This Photo
+                            <% end %>
+                          </div> <!-- column -->
+                        </div> <!-- approval row -->
                </div> <!-- mfp contents -->
           <% end %>
      </div> <!-- kit 3 div -->

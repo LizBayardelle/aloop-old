@@ -3,10 +3,10 @@ class PhotosController < ApplicationController
 
   # GET /photos
   def index
-    @photos = Photo.all
-    @kit_1_photos = Photo.where(kit: "kit_1")
-    @kit_2_photos = Photo.where(kit: "kit_2")
-    @kit_3_photos = Photo.where(kit: "kit_3")
+    @photos = Photo.where(approved: true)
+    @kit_1_photos = Photo.where(kit: "kit_1", approved: true)
+    @kit_2_photos = Photo.where(kit: "kit_2", approved: true)
+    @kit_3_photos = Photo.where(kit: "kit_3", approved: true)
   end
 
   # GET /photos/1
@@ -48,6 +48,26 @@ class PhotosController < ApplicationController
   def destroy
     @photo.destroy
     redirect_to photos_url, notice: 'Photo was successfully destroyed.'
+  end
+
+  def approve
+    @photo = Photo.find(params[:id])
+    if @photo.update_attributes(approved: true)
+      flash[:notice] = "The photo has been sent to the gallery!"
+      redirect_to :back
+    else
+      flash[:alert] = "That photo could not be approved right now."
+    end
+  end
+
+  def unapprove
+    @photo = Photo.find(params[:id])
+    if @photo.update_attributes(approved: false)
+      flash[:notice] = "The photo has been removed from the gallery!"
+      redirect_to :back
+    else
+      flash[:alert] = "That photo could not be unapproved right now."
+    end
   end
 
   private

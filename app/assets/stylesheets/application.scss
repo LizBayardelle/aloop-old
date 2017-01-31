@@ -89,6 +89,7 @@ h2 {
 	font-family: $font-sans;
 	font-weight: 900;
 }
+.small-h2 { font-size: 35px; }
 h3 { font-family: $font-serif }
 p { font-size: 16px }
 @media screen and (max-width: 768px) { p { padding: 0 10px 0 10px; } }
@@ -913,6 +914,40 @@ input[type=submit].submit-as-text {
     color: $color-blue;
     margin: 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ /*
+==============================================
+Users#Show
+==============================================
+*/
+
+.large {
+	font-size: 40px;
+}
+
+
+
 
 
 
