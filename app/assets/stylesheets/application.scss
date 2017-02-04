@@ -351,8 +351,6 @@ footer {
 }
 
 footer {
-	background-image: url(metal_footer_background.jpg);
-	background-size: cover;
 	padding-top: 50px;
 	-webkit-box-shadow: 0px -4px 6px 0px rgba(0,0,0,0.19);
 	-moz-box-shadow: 0px -4px 6px 0px rgba(0,0,0,0.19);
@@ -368,6 +366,39 @@ footer h2 {
 	font-weight: 900;
 }
 
+
+
+
+
+
+
+
+
+
+/*
+==============================================
+Tables
+==============================================
+*/
+
+.invisible-table td {
+	border: none;
+}
+
+.invisible-table th {
+	font-weight: 900;
+	text-align: center;
+}
+
+.alternating-table tr:nth-child(even) {
+	background-color: $color-silver;
+}
+
+.alternating-table {
+	max-width: 100%;
+	box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	margin: 0px auto;
+}
 
 
 

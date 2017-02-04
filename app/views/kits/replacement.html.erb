@@ -12,22 +12,39 @@
 	</div> <!-- index text row -->
 </div> <!-- overlap hero image -->
 
-<table>
-	<th>
-		
-		<td>Size</td>
-		<td>Description</td>
-		<td>Application Notes</td>
-		<td>Price</td>
-	</th>
-<% @replacement_products.each do |product| %>
-	<tr>
-		<td><%= product.aloop_number %></td>
-		<td><%= product.size %></td>
-		<td><%= product.description %></td>
-		<td><%= product.application_notes %></td>
-		<td><%= product.price %></td>
-	</tr>
-<% end %>
-</table>
+<div class="container" style="margin-top: 20px">
 
+	<div class="row text-center">
+		<h1 class="col-sm-10 col-sm-push-1"><strong>As with all our products, you can order replacement parts online, by mail, or via email.</strong></h1>
+	</div> <!-- header row -->
+
+	<%= render "home/cta" %>
+
+	<h2 class="text-center">List of Replacement Parts</h2>
+
+	<% @replacement_products.each do |product| %>
+		<div class="row">
+			<div class="col-sm-12">
+				<h3><%= link_to product.name, product_path(product) %></h3>
+			</div> <!-- name column -->
+			<div class="col-sm-8">
+				<%= product.description %>
+				<h3 class="color-red">$<%= number_with_precision(product.price, precision: 2) %></h3>
+			</div> <!-- name column -->
+			<div class="col-sm-4">
+				<strong>Aloop Product #: </strong><%= product.aloop_number %><br>
+				<% if product.size != "" %>
+					<strong>Size: </strong><%= product.size %><br>
+				<% end %>
+				<% if product.application_notes != "" %>
+					<strong>Application Notes: </strong><%= product.application_notes %>
+				<% end %>
+				<br><div class="btn btn-cta"><%= link_to "More Info",product_path(product) %></div>
+			</div> <!-- details column -->
+		</div> <!-- row -->
+
+		<div class="row">
+			<hr class="col-xs-6 col-xs-push-3">
+		</div>
+	<% end %>
+</div> <!-- container -->
