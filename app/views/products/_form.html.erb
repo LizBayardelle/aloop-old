@@ -16,7 +16,8 @@
 
         <div class="form-group col-xs-12">
           <%= f.label :tag_list, "Tags (separated by commas)" %><br />
-          <%= f.text_field :tag_list, class: "form-control" %>
+          <%= f.input :tag_list, label: false, :input_html => { :class => "css-class", :value => @product.tag_list.join(", ") } %>
+
         </div> <!-- form group -->
 
         <div class="form-group col-xs-6">
