@@ -9,6 +9,7 @@ class KitsController < ApplicationController
   end
 
   def replacement
+    @replacement_products = Product.tagged_with(["Replacement"], any: true)
   end
 
   def rear_fenders_1

@@ -1,2 +1,33 @@
-<h1>Kits#replacement</h1>
-<p>Find me in app/views/kits/replacement.html.erb</p>
+<div class="hero-image-row">
+  <div class="hero-image-outer text-center">
+    <div class="hero-image-inner text-center">
+      <%= image_tag "polaris_9.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
+    </div> <!-- hero-image-inner -->
+  </div> <!-- hero-image-inner -->
+</div> <!-- row -->
+
+<div class="overlap-hero-image">
+	<div class="index-text row">
+		<h2>Replacement Parts</h2>
+	</div> <!-- index text row -->
+</div> <!-- overlap hero image -->
+
+<table>
+	<th>
+		
+		<td>Size</td>
+		<td>Description</td>
+		<td>Application Notes</td>
+		<td>Price</td>
+	</th>
+<% @replacement_products.each do |product| %>
+	<tr>
+		<td><%= product.aloop_number %></td>
+		<td><%= product.size %></td>
+		<td><%= product.description %></td>
+		<td><%= product.application_notes %></td>
+		<td><%= product.price %></td>
+	</tr>
+<% end %>
+</table>
+

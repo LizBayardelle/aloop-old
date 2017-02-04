@@ -53,6 +53,7 @@ class PhotosController < ApplicationController
   def approve
     @photo = Photo.find(params[:id])
     if @photo.update_attributes(approved: true)
+      GalleryMailer.submission_approved(@photo.user, @photo).deliver_now
       flash[:notice] = "The photo has been sent to the gallery!"
       redirect_to :back
     else
