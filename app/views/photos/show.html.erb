@@ -1,4 +1,4 @@
-<div class="text-center row">
+<div class="text-center row black-border-row" style="padding: 30px">
 	<div class="container">
 		<%= image_tag @photo.image.url, alt: @photo.user.last_name %>
 
@@ -10,3 +10,8 @@
 	</div> <!-- container -->
 </div> <!-- row -->
 
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

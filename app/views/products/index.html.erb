@@ -12,13 +12,14 @@
   </div> <!-- index text row -->
 </div> <!-- overlap hero image -->
 
-<div class="text-right">
-  <% if current_user && current_user.admin %>
-    <%= link_to 'New Product', new_product_path, style: "padding: 15px" %>
-  <% end %>
-</div> <!-- right nav -->
 
-<div class="header-row row text-center">
+<div class="header-row row text-center background-white bottom-shadow bp50">
+  <div class="text-right">
+    <% if current_user && current_user.admin %>
+      <%= link_to 'New Product', new_product_path, style: "padding: 15px" %>
+    <% end %>
+  </div> <!-- right nav -->
+
   <div class="row">
     <div class="col-sm-8 col-sm-push-2">
       <h3>Along with our game-changing 4SMX kits, we now carry other plastic parts to help convert your XR into a genuine 4SMX weapon.</h3>
@@ -42,4 +43,8 @@
   <%= render "product_row", product: product, order_item: @order_item %>
 <% end %> <!-- each ends -->
 
-
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

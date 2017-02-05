@@ -1,6 +1,16 @@
-<h1>Editing Contact</h1>
+<div class="row text-center" style="margin-bottom: 50px">
+	<div class="blue-box col-xs-10 col-xs-push-1">
+		<h1>Edit Your Message</h1>
 
-<%= render 'form' %>
+		<%= render 'form' %>
 
-<%= link_to 'Show', @contact %> |
-<%= link_to 'Back', contacts_path %>
+		<%= link_to 'Show', @contact %> |
+		<%= link_to 'Back', contacts_path %>
+	</div> <!-- column -->
+</div> <!-- row -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

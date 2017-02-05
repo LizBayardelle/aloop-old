@@ -12,83 +12,85 @@
   </div> <!-- index text row -->
 </div> <!-- overlap hero image -->
 
-<div class="container">
-
-  <div class="row">
-    <h1 class="text-center font-hand">Current Messages</h1>
-    <% if @contacts.count > 0 %>
-      <table>
-        <thead>
-          <tr>
-            <th>From</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
-
-        <tbody>
-          <% @contacts.each do |contact| %>
+<div class="row background-white bp50">
+  <div class="container">
+    <div class="row" style="margin-top: 50px">
+      <h1 class="text-center font-hand">Current Messages</h1>
+      <% if @contacts.count > 0 %>
+        <table>
+          <thead>
             <tr>
-              <%= link_to contact_path(contact) do %>
-                <td><%= contact.first_name %> <%= contact.last_name %></td>
-                <td><%= phone_number_link contact.phone %>
-                  <% if contact.preferred_contact_method == "Phone" %><br>(Preferred)<% end %>
-                </td>
-                <td><%= mail_to contact.email %>
-                  <% if contact.preferred_contact_method == "Email" %><br>(Preferred)<% end %>
-                </td>
-              <% end %>
-              <td><%= link_to 'Read Message', contact %></td>
-              <td><%= link_to 'Archive', archive_contact_path(contact), method: :put %></td>
+              <th>From</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th colspan="2"></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p class="text-center">All good!  You don't have any current messages that need responding.</p>
-    <% end %>
-  </div> <!-- current messages -->
+          </thead>
 
-  <h1 class="text-center font-hand" style="margin-top: 50px">Archived Messages</h1>
-  <p id="archivedShow" class="text-center color-blue">Show Archived Messages</p>
-  <div id="archivedDiv" class="row hidden">
-    <p id="archivedHide" class="text-center color-blue">Hide Archived Messages</p>
-    <% if @archived.count > 0 %>
-      <table>
-        <thead>
-          <tr>
-            <th>From</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th colspan="2"></th>
-          </tr>
-        </thead>
+          <tbody>
+            <% @contacts.each do |contact| %>
+              <tr>
+                <%= link_to contact_path(contact) do %>
+                  <td><%= contact.first_name %> <%= contact.last_name %></td>
+                  <td><%= phone_number_link contact.phone %>
+                    <% if contact.preferred_contact_method == "Phone" %><br>(Preferred)<% end %>
+                  </td>
+                  <td><%= mail_to contact.email %>
+                    <% if contact.preferred_contact_method == "Email" %><br>(Preferred)<% end %>
+                  </td>
+                <% end %>
+                <td><%= link_to 'Read Message', contact %></td>
+                <td><%= link_to 'Archive', archive_contact_path(contact), method: :put %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="text-center">All good!  You don't have any current messages that need responding.</p>
+      <% end %>
+    </div> <!-- current messages -->
 
-        <tbody>
-          <% @archived.each do |contact| %>
+
+    <h1 class="text-center font-hand" style="margin-top: 50px">Archived Messages</h1>
+    <p id="archivedShow" class="text-center color-blue">Show Archived Messages</p>
+    <div id="archivedDiv" class="row hidden">
+      <p id="archivedHide" class="text-center color-blue">Hide Archived Messages</p>
+      <% if @archived.count > 0 %>
+        <table>
+          <thead>
             <tr>
-              <%= link_to contact_path(contact) do %>
-                <td><%= contact.first_name %> <%= contact.last_name %></td>
-                <td><%= phone_number_link contact.phone %>
-                  <% if contact.preferred_contact_method == "Phone" %><br>(Preferred)<% end %>
-                </td>
-                <td><%= mail_to contact.email %>
-                  <% if contact.preferred_contact_method == "Email" %><br>(Preferred)<% end %>
-                </td>
-              <% end %>
-              <td><%= link_to 'Read Message', contact %></td>
-              <td><%= link_to 'Unarchive', unarchive_contact_path(contact), method: :put %></td>
+              <th>From</th>
+              <th>Phone</th>
+              <th>Email</th>
+              <th colspan="2"></th>
             </tr>
-          <% end %>
-        </tbody>
-      </table>
-    <% else %>
-      <p class="text-center">There aren't any archived messages right now.</p>
-    <% end %>
-  </div> <!-- archived contacts row -->
+          </thead>
 
-</div> <!-- page container -->
+          <tbody>
+            <% @archived.each do |contact| %>
+              <tr>
+                <%= link_to contact_path(contact) do %>
+                  <td><%= contact.first_name %> <%= contact.last_name %></td>
+                  <td><%= phone_number_link contact.phone %>
+                    <% if contact.preferred_contact_method == "Phone" %><br>(Preferred)<% end %>
+                  </td>
+                  <td><%= mail_to contact.email %>
+                    <% if contact.preferred_contact_method == "Email" %><br>(Preferred)<% end %>
+                  </td>
+                <% end %>
+                <td><%= link_to 'Read Message', contact %></td>
+                <td><%= link_to 'Unarchive', unarchive_contact_path(contact), method: :put %></td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+      <% else %>
+        <p class="text-center">There aren't any archived messages right now.</p>
+      <% end %>
+    </div> <!-- archived contacts row -->
+
+  </div> <!-- page container -->
+</div> <!-- white row -->
 
 <script>
   $( document ).ready(function() {

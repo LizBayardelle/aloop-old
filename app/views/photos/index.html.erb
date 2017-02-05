@@ -12,84 +12,42 @@
   </div> <!-- index text row -->
 </div> <!-- overlap hero image -->
 
-<div class="container">
-     <div class="row text-center">
-          <h3 class="col-xs-12">Over the last 10 years we've sold almost 5,500 of our seat tank kits to avid XR pilots all around the world. Here are a few of the photos that our happy customer's have sent in. We hope you enjoy them as much as we did!</h3>
+<div class="row background-white bp50">
+  <div class="container bp50">
+       <div class="row text-center">
+            <h3 class="col-xs-12">Over the last 10 years we've sold almost 5,500 of our seat tank kits to avid XR pilots all around the world. Here are a few of the photos that our happy customer's have sent in. We hope you enjoy them as much as we did!</h3>
 
-          <div class="btn"><%= link_to 'Share a Photo', new_photo_path %></div>
-     </div> <!-- row -->
-</div> <!-- container -->
+            <div class="btn"><%= link_to 'Share a Photo', new_photo_path %></div>
+       </div> <!-- row -->
+  </div> <!-- container -->
 
-<div class="row" style="margin-bottom: 30px">
-     <ul class="nav nav-tabs text-center">
-          <li id="kit_1_tab" class="active" style="margin-left: 50px"><a>Aloop<br class="visible-xs"> XR250/XR400</a></li>
-          <li id="kit_2_tab"><a>Aloop<br class="visible-xs"> XR600</a></li>
-          <li id="kit_3_tab"><a>Aloop SuperMotard<br class="visible-xs"> and XR650L</a></li>
-     </ul>
-</div> <!-- row -->
-     
-<div class="container">
-     <div class="kit_1_div kit">
-          <% @kit_1_photos.each do |photo| %>
+  <div class="row" style="margin-bottom: 30px">
+       <ul class="nav nav-tabs text-center">
+            <li id="kit_1_tab" class="active" style="margin-left: 50px"><a>Aloop<br class="visible-xs"> XR250/XR400</a></li>
+            <li id="kit_2_tab"><a>Aloop<br class="visible-xs"> XR600</a></li>
+            <li id="kit_3_tab"><a>Aloop SuperMotard<br class="visible-xs"> and XR650L</a></li>
+       </ul>
+  </div> <!-- row -->
+       
+  <div class="container">
+       <div class="kit_1_div kit">
+            <% @kit_1_photos.each do |photo| %>
 
-               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
-                    <a href="#<%= photo.id %>" class="open-popup-link">
-                         <div class="snapshot">
-                              <%= image_tag photo.image.url, alt: photo.user.last_name %>
-                         </div> <!-- snapshot -->
-                    </a>
-               </div> <!-- column -->
+                 <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
+                      <a href="#<%= photo.id %>" class="open-popup-link">
+                           <div class="snapshot">
+                                <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                           </div> <!-- snapshot -->
+                      </a>
+                 </div> <!-- column -->
 
-               <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
-                    <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
-                    <p><%= photo.comments %></p>
-                    <% if !photo.user.admin %>
-                         <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
-                    <% end %>
-                    <% if current_user && current_user.admin %>
-                      <div class="row">
-                        <div class="col-xs-4 col-sm-2 col-sm-push-3">
-                          <%= link_to edit_photo_path(photo) do %>
-                                <i class="icon large ion-edit"></i>
-                                <br>Edit This Photo
-                          <% end %>
-                        </div> <!-- column -->
-                        <div class="col-xs-4 col-sm-2 col-sm-push-3">
-                          <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
-                            <i class="icon large ion-close"></i>
-                            <br>Unapprove This Photo
-                          <% end %>
-                        </div> <!-- column -->
-                        <div class="col-xs-4 col-sm-2 col-sm-push-3">
-                          <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
-                            <i class="icon large ion-trash-a"></i>
-                            <br>Delete This Photo
-                          <% end %>
-                        </div> <!-- column -->
-                      </div> <!-- approval row -->
-                  <% end %>
-               </div>  <!-- mfp contents -->    
-          <% end %>
-     </div> <!-- kit 1 div -->
-
-     <div class="kit_2_div hidden">
-          <% @kit_2_photos.each do |photo| %>
-
-               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
-                    <a href="#<%= photo.id %>" class="open-popup-link">
-                         <div class="snapshot">
-                              <%= image_tag photo.image.url, alt: photo.user.last_name %>
-                         </div> <!-- snapshot -->
-                    </a>
-               </div> <!-- column -->
-
-               <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
-                    <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
-                    <p><%= photo.comments %></p>
-                    <% if !photo.user.admin %>
-                         <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
-                    <% end %>
-                    <% if current_user && current_user.admin %>
+                 <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+                      <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                      <p><%= photo.comments %></p>
+                      <% if !photo.user.admin %>
+                           <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+                      <% end %>
+                      <% if current_user && current_user.admin %>
                         <div class="row">
                           <div class="col-xs-4 col-sm-2 col-sm-push-3">
                             <%= link_to edit_photo_path(photo) do %>
@@ -111,54 +69,98 @@
                           </div> <!-- column -->
                         </div> <!-- approval row -->
                     <% end %>
-               </div> <!-- mfp contents -->
-          <% end %>
-     </div> <!-- kit 2 div -->
+                 </div>  <!-- mfp contents -->    
+            <% end %>
+       </div> <!-- kit 1 div -->
 
-     <div class="kit_3_div hidden">
-          <% @kit_3_photos.each do |photo| %>
+       <div class="kit_2_div hidden">
+            <% @kit_2_photos.each do |photo| %>
 
-               <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
-                    <a href="#<%= photo.id %>" class="open-popup-link">
-                         <div class="snapshot">
-                              <%= image_tag photo.image.url, alt: photo.user.last_name %>
-                         </div> <!-- snapshot -->
-                    </a>
-               </div> <!-- column -->
+                 <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
+                      <a href="#<%= photo.id %>" class="open-popup-link">
+                           <div class="snapshot">
+                                <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                           </div> <!-- snapshot -->
+                      </a>
+                 </div> <!-- column -->
 
-               <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
-                    <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
-                    <p><%= photo.comments %></p>
-                    <% if !photo.user.admin %>
-                         <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
-                    <% end %>
-                    <% if current_user && current_user.admin %>
-                        <div class="row">
-                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
-                            <%= link_to edit_photo_path(photo) do %>
-                                  <i class="icon large ion-edit"></i>
-                                  <br>Edit This Photo
-                            <% end %>
-                          </div> <!-- column -->
-                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
-                            <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
-                              <i class="icon large ion-close"></i>
-                              <br>Unapprove This Photo
-                            <% end %>
-                          </div> <!-- column -->
-                          <div class="col-xs-4 col-sm-2 col-sm-push-3">
-                            <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
-                              <i class="icon large ion-trash-a"></i>
-                              <br>Delete This Photo
-                            <% end %>
-                          </div> <!-- column -->
-                        </div> <!-- approval row -->
-                    <% end %>  
-               </div> <!-- mfp contents -->
-          <% end %>
-     </div> <!-- kit 3 div -->
+                 <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+                      <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                      <p><%= photo.comments %></p>
+                      <% if !photo.user.admin %>
+                           <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+                      <% end %>
+                      <% if current_user && current_user.admin %>
+                          <div class="row">
+                            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                              <%= link_to edit_photo_path(photo) do %>
+                                    <i class="icon large ion-edit"></i>
+                                    <br>Edit This Photo
+                              <% end %>
+                            </div> <!-- column -->
+                            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                              <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
+                                <i class="icon large ion-close"></i>
+                                <br>Unapprove This Photo
+                              <% end %>
+                            </div> <!-- column -->
+                            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                              <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
+                                <i class="icon large ion-trash-a"></i>
+                                <br>Delete This Photo
+                              <% end %>
+                            </div> <!-- column -->
+                          </div> <!-- approval row -->
+                      <% end %>
+                 </div> <!-- mfp contents -->
+            <% end %>
+       </div> <!-- kit 2 div -->
 
-</div> <!-- container -->
+       <div class="kit_3_div hidden">
+            <% @kit_3_photos.each do |photo| %>
+
+                 <div class="col-xs-4 col-sm-3 col-md-2 col-lg-1 big-div">
+                      <a href="#<%= photo.id %>" class="open-popup-link">
+                           <div class="snapshot">
+                                <%= image_tag photo.image.url, alt: photo.user.last_name %>
+                           </div> <!-- snapshot -->
+                      </a>
+                 </div> <!-- column -->
+
+                 <div id="<%= photo.id %>" class="image-popup mfp-hide text-center">
+                      <%= image_tag photo.image.url, alt: photo.user.last_name, class: "popup-picture", style: "margin-bottom: 30px" %>
+                      <p><%= photo.comments %></p>
+                      <% if !photo.user.admin %>
+                           <h3><strong>Submitted by: </strong><%= photo.user.first_name %></h3>
+                      <% end %>
+                      <% if current_user && current_user.admin %>
+                          <div class="row">
+                            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                              <%= link_to edit_photo_path(photo) do %>
+                                    <i class="icon large ion-edit"></i>
+                                    <br>Edit This Photo
+                              <% end %>
+                            </div> <!-- column -->
+                            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                              <%= link_to unapprove_photo_path(photo), method: :put, style: "color: orange" do %>
+                                <i class="icon large ion-close"></i>
+                                <br>Unapprove This Photo
+                              <% end %>
+                            </div> <!-- column -->
+                            <div class="col-xs-4 col-sm-2 col-sm-push-3">
+                              <%= link_to photo_path(photo), method: :delete, data: {confirm: "Are you sure you want to delete this photo?"}, style: "color: red" do %>
+                                <i class="icon large ion-trash-a"></i>
+                                <br>Delete This Photo
+                              <% end %>
+                            </div> <!-- column -->
+                          </div> <!-- approval row -->
+                      <% end %>  
+                 </div> <!-- mfp contents -->
+            <% end %>
+       </div> <!-- kit 3 div -->
+
+  </div> <!-- container -->
+</div> <!-- white row -->
 
 
 

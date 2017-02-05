@@ -57,22 +57,30 @@
 			</div> <!-- text-div -->
 		</div> <!-- black box -->
 
-		<div class="row">
-			<div style="margin-top: 30px" class="col-xs-10 col-xs-push-1">
-				<h2 class="text-center">Important Information</h2>
-				<p>The Aloop 4SMX kit uses radiator plastic from a 1999 CR250. This means that any graphics that will fit the 99 CR will also fit our plastic shrouds.</p>
-				<p>There is no difference between the graphics for any of our 4SMX kits. The 250, 400, 600 and 650 kits all use the same graphics. The 250/400 kit dies use a different seat cover from the 600/650.</p>
-				<p>Our seat is designed to have the same profile as a Honda CR250, very long and flat across the top. But since the subframe of an XR is wider than that of a CR, we've made the bottom portion of the seat wide enough to span the wider frame. This means we also had to make a special cover that has a CR profile up top, but has much more material on the sides. Some aftermarket  CR250 seat covers will fit, but only if they have a generous cut with plenty of material to reach our wider seat bottom. You're probably better off buying our replacement Aloop seat cover, since they're definitely wide enough to fit perfectly.</p>
-				<h4 class="text-center" style="margin-top: 20px"><strong>Questions? For more info or to get in touch,<br>see our <%= link_to "contact us page", new_contact_path %> any time!</strong></h4>
-			</div> <!-- column -->
-		</div> <!-- row -->
-
-	<%= render "home/cta" %>
-
 	</div> <!-- content container -->
 </div> <!-- content row -->
 
+<div class="row black-border-row bp50">
+	<div style="margin-top: 30px" class="col-xs-10 col-xs-push-1">
+		<h2 class="text-center">Important Information</h2>
+		<p>The Aloop 4SMX kit uses radiator plastic from a 1999 CR250. This means that any graphics that will fit the 99 CR will also fit our plastic shrouds.</p>
+		<p>There is no difference between the graphics for any of our 4SMX kits. The 250, 400, 600 and 650 kits all use the same graphics. The 250/400 kit dies use a different seat cover from the 600/650.</p>
+		<p>Our seat is designed to have the same profile as a Honda CR250, very long and flat across the top. But since the subframe of an XR is wider than that of a CR, we've made the bottom portion of the seat wide enough to span the wider frame. This means we also had to make a special cover that has a CR profile up top, but has much more material on the sides. Some aftermarket  CR250 seat covers will fit, but only if they have a generous cut with plenty of material to reach our wider seat bottom. You're probably better off buying our replacement Aloop seat cover, since they're definitely wide enough to fit perfectly.</p>
+		<h4 class="text-center" style="margin-top: 20px"><strong>Questions? For more info or to get in touch,<br>see our <%= link_to "contact us page", new_contact_path %> any time!</strong></h4>
+	</div> <!-- column -->
+</div> <!-- row -->
 
+<div class="container" style="margin-top: 30px">
+	<%= render "home/cta" %>
+</div> <!-- container -->
+
+
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>
 
 
 
