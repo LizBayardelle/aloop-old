@@ -25,7 +25,7 @@
       <h3>Along with our game-changing 4SMX kits, we now carry other plastic parts to help convert your XR into a genuine 4SMX weapon.</h3>
 
       <div class="row">
-        <div id="tag_cloud" class="col-sm-4 col-sm-push-4" style="margin-top: 20px">
+        <div id="tag_cloud" class="col-sm-6 col-sm-push-3" style="margin-top: 20px">
           <% tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| %>
             <%= link_to tag.name, tag_path(tag.name), class: css_class %>
           <% end %>
