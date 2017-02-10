@@ -936,26 +936,11 @@ Hero Images
 ==============================================
 */
 
-.bgi-div {
-	overflow: hidden;
-	position: fixed;
-	height: 100vh;
-	z-index: 10;
-	margin-top: -100px;
-	width: 100%;
-}
-
-.bgi-image {
-	min-width: 100%;
-	max-width: none;
-	max-height: 100%;
-}
-
 .hero-image-row {
    margin-top: -250px;
    overflow-x: hidden !important;
    width: 100% !important;
-   z-index: 10;
+   z-index: 20;
    position: relative;
  }
 
@@ -963,17 +948,20 @@ Hero Images
    width: 350%;
    height: 600px;
    overflow-y: hidden !important;
+   position: relative;
  }
 
  .hero-image-inner {
-   width: 75%;
-   overflow-x: hidden !important;
+    width: 75%;
+    overflow-x: hidden !important;
+    position: absolute;
+ 	bottom: 0;
  }
 
  .hero-image {
-   height: 600px;
-   margin-left: -61.5%;
-   z-index: 0 !important;
+    height: 600px;
+    margin-left: -61.5%;
+    z-index: 10 !important;
  }
 
  @media screen and (min-width: 900px) {
@@ -995,7 +983,7 @@ Hero Images
  .overlap-hero-image {
    height: 600px;
    position: relative;
-   z-index: 10;
+   z-index: 20;
    width: 100%;
    margin-top: -600px;
  }
