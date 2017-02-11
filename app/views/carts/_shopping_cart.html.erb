@@ -21,11 +21,12 @@
   <div class="container">
 
     <div class="col-sm-6 text-left">
+      <h4>Please select your location so we can calculate the correct sales tax:</h4>
       <div class="choice-box in-CO">
-        <p>I live in Colorado.</p>
+        <p><i class="icon in-CO-ion ion-ios-circle-outline"></i>I live in Colorado.</p>
       </div> <!-- choice box -->
       <div class="choice-box out-CO">
-        <p>I live outside Colorado.</p>
+        <p><i class="icon out-CO-ion ion-ios-circle-outline"></i>I live outside Colorado.</p>
       </div> <!-- choice box -->
 
       <% order_tax_rate = 0 %>
@@ -47,9 +48,12 @@
         <%= number_to_currency order_tax %> 
       </span></strong></h4>
 
+      <% order_total = order_tax + order_subtotal %>
+
       <h4><strong>Total: <span class="color-red">
-        <%= number_to_currency order_subtotal %>  
+        <%= number_to_currency order_total %>  
       </span></strong></h4>
+
     </div> <!-- column -->
   </div> <!-- container -->
 </div> <!-- total row -->
@@ -57,12 +61,20 @@
 <script type="text/javascript">
   $(document).ready(function() {
     $(".in-CO").click(function() {
-      $(".in-CO").addClass("active");
+      $(this).addClass("active");
+      $(".in-CO-ion").addClass("ion-ios-checkmark-outline");
+      $(".in-CO-ion").removeClass("ion-ios-circle-outline");
       $(".out-CO").removeClass("active");
+      $(".out-CO-ion").removeClass("ion-ios-checkmark-outline");
+      $(".out-CO-ion").addClass("ion-ios-circle-outline");
     });
     $(".out-CO").click(function() {
-      $(".out-CO").addClass("active");
+      $(this).addClass("active");
+      $(".out-CO-ion").addClass("ion-ios-checkmark-outline");
+      $(".out-CO-ion").removeClass("ion-ios-circle-outline");
       $(".in-CO").removeClass("active");
+      $(".in-CO-ion").removeClass("ion-ios-checkmark-outline");
+      $(".in-CO-ion").addClass("ion-ios-circle-outline");
     })
   });
 </script>

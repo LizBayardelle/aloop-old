@@ -754,25 +754,25 @@ Kits Home Page
 	padding: 0;
 }
 
-.all-kit-box.replacement-parts {
-	height: 150px;
-	overflow: hidden;
-	padding: 0px;
-	position: relative;
+@media screen and (min-width: 769px) {
+	.all-kit-box.replacement-parts {
+		height: 150px;
+		overflow: hidden;
+		padding: 0px;
+		position: relative;
+	}
+
+	.all-kit-box img {
+		margin-top: -272px;
+		width: 100%;
+		min-height: 100%;
+		display: inline-block;
+		vertical-align: middle;
+		margin-left: auto;
+		margin-right: auto;
+		opacity: .45;
+	}
 }
-
-.all-kit-box img {
-	margin-top: -272px;
-	width: 100%;
-	min-height: 100%;
-	display: inline-block;
-	vertical-align: middle;
-	margin-left: auto;
-	margin-right: auto;
-	opacity: .45;
-
-}
-
 
 @media screen and (max-width: 768px) {
 	.all-kit-box img {
@@ -964,6 +964,20 @@ Hero Images
     z-index: 10 !important;
  }
 
+@media screen and (min-width: 1200px) {
+	.hero-image-outer {
+	   height: 800px;
+	 }
+
+	 .hero-image {
+	    height: 800px;
+	 }
+
+	  .overlap-hero-image {
+	   height: 800px;
+	}
+}
+
  @media screen and (min-width: 900px) {
    .hero-image-outer {
      width: 100%;
@@ -1014,6 +1028,77 @@ Hero Images
 
 
 
+
+
+
+
+ /*
+==============================================
+Store
+==============================================
+*/
+
+.store-featured {
+	overflow: hidden;
+	padding: 0;
+}
+
+.store-featured .image-box {
+    width: 100%;
+    height: 150px;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+}
+
+.image-box > img {
+    position: absolute;
+    top: 50%;
+    min-height: 100%;
+    display: block;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    width: 100%;
+}
+
+.store-featured .text-box {
+	padding: 0 20px 10px 20px;
+}
+
+.inner-15 {
+	padding: 15px;
+}
+
+
+@media screen and (max-width: 768px) {
+	.image-box > img {
+	    position: relative;
+	    top: 0;
+	    min-height: 100px;
+	    display: block;
+	    left: 0;
+	    -webkit-transform: none;
+	    width: 100%;
+	}
+
+	.store-featured .image-box {
+		position: relative;
+		height: auto !important;
+		width: 100%;
+	}
+}
+
+@media screen and (max-width: 1000px) {
+	.store-featured .image-box {
+		height: 200;
+	}
+}
+
+
+
+
+
+
  /*
 ==============================================
 Cart
@@ -1031,7 +1116,25 @@ input[type=submit].submit-as-text {
     margin: 0;
 }
 
+.choice-box {
+	color: $color-silver;
+}
 
+.choice-box .ion {
+	margin-right: 8px;
+	margin-left: 8px;
+}
+
+.choice-box:hover {
+	color: black;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.active {
+	color: $color-blue !important;
+	font-weight: bold;
+}
 
 
 
