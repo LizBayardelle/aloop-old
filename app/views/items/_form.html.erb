@@ -1,0 +1,62 @@
+<div class="row">
+  <div class="col-xs-10 col-xs-push-1">
+    <%= simple_form_for(@item) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs row">
+        <div class="form-group col-xs-9">
+          <%= f.label "Item Name" %>
+          <%= f.text_field :name, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-3">
+          <%= f.label :price %>
+          <%= f.text_field :price, class: "form-control", data: {autonumeric: true} %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <%= f.label :tag_list, "Tags (separated by commas)" %><br />
+          <%= f.input :tag_list, label: false, :input_html => { :class => "css-class", :value => @item.tag_list.join(", ") } %>
+
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-6">
+          <%= f.label "Item Size" %>
+          <%= f.text_field :size, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-6">
+          <%= f.label "Aloop Item Number" %>
+          <%= f.text_field :aloop_number, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <%= f.label "Item Tag Line" %>
+          <%= f.text_field :tag_line, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <%= f.label "Item Description" %>
+          <%= f.text_area :description, class: "form-control" %>
+        </div> <!-- form group -->
+        
+        <div class="form-group col-xs-12">
+          <%= f.label "Application Notes" %>
+          <%= f.text_area :application_notes, class: "form-control" %>
+        </div> <!-- form group -->
+
+        <div class="form-group col-xs-12">
+          <%= f.input :image, as: :file %>
+        </div> <!-- form group -->
+
+        <div class="form-group text-center col-xs-12">
+           <%= f.input :active, label: "This is an active item." %>
+        </div> <!-- form group -->
+      </div>
+
+      <div class="form-actions text-center">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+  </div> <!-- column -->
+</div> <!-- form row -->

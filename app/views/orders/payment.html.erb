@@ -1,0 +1,28 @@
+<div class="container">
+	<%= shoppe_stripe_javascript %>
+
+	<h2 class="text-center">Make your payment</h2>
+
+	<div class="blue-box">
+		<%= form_tag nil, class: "stripeForm" do %>
+		  <%= hidden_field_tag "stripe_token", nil, "data-stripe" => "token" %>
+		  <dl>
+		    <dt><%= label_tag 'card_number' %></dt>
+		    <dd><%= text_field_tag 'card_number', nil, name: nil, "data-stripe" => "number", class: "form-control" %></dd>
+		    <dt><%= label_tag 'expiry_month' %></dt>
+		    <dd><%= text_field_tag 'expiry_month', nil, name: nil, "data-stripe" => "exp-month", class: "form-control" %></dd>
+		    <dt><%= label_tag 'expiry_year' %></dt>
+		    <dd><%= text_field_tag 'expiry_year', nil, name: nil, "data-stripe" => "exp-year", class: "form-control" %></dd>
+		    <dt><%= label_tag 'security_code' %></dt>
+		    <dd><%= text_field_tag 'security_code', nil, name: nil, "data-stripe" => "cvc", class: "form-control" %></dd>
+		    <dd class="text-center"><%= submit_tag "Continue", class: "btn cta" %></dd>
+		  </dl>
+		<% end %>
+	</div> <!-- blue box -->
+</div> <!-- container -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

@@ -1,0 +1,14 @@
+<div class="container">
+	<h2 class="text-center">Your Cart</h2>
+	<%= render 'items', :order => current_order %>
+	<div class="text-center button-container">	
+		<div class="btn"><%= link_to 'Empty Cart', basket_path, :method => :delete %></div>
+		<div class="btn cta"><%= link_to "Checkout", checkout_path %></div>
+	</div>
+</div> <!-- container -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

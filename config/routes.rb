@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-
   devise_for :users, :controllers => { registrations: 'registrations' }
   resources :users, only: [:show]
 
@@ -21,8 +20,8 @@ Rails.application.routes.draw do
 
   get 'other/xr400mx'
 
-  resources :products
-  get 'tags/:tag', to: 'products#index', as: :tag
+  resources :items
+  get 'tags/:tag', to: 'items#index', as: :tag
   resources :order_items, only: [:create, :update, :destroy]
   resource :cart, only: [:show]
 
@@ -34,4 +33,14 @@ Rails.application.routes.draw do
   put "photos/:id/approve" => "photos#approve", as: "approve_photo"
   put "photos/:id/unapprove" => "photos#unapprove", as: "unapprove_photo"
   
+  mount Shoppe::Engine => "/shoppe"
+  get "product/:permalink", to: "products#show", as: "product"
+  post "product/:permalink", to: "products#buy", as: "buy"
+  resources :products, only: [:index]
+  post "product/:permalink", to: "products#buy"
+  get "basket", to: "orders#show"
+  delete "basket", to: "orders#destroy"
+  match "checkout", to: "orders#checkout", as: "checkout", via: [:get, :patch]
+  match "checkout/pay", to: "orders#payment", as: "checkout_payment", via: [:get, :post]
+  match "checkout/confirm", to: "orders#confirmation", as: "checkout_confirmation", via: [:get, :post]
 end

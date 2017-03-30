@@ -1,0 +1,57 @@
+<div class="container">
+	<h2 class="text-center">Checkout</h2>
+
+	<%= render 'items', :order => @order %>
+
+
+	<div class="blue-box text-center">
+	<h2 class="text-center" style="margin-bottom: 25px; font-size: 35px">Billing Information</h2>
+		<%= form_for @order, :url => checkout_path do |f| %>
+		  	<div class="form-group col-xs-6 text-left">
+            <%= f.label :first_name, 'First Name' %>
+	  		<%= f.text_field :first_name, class: "form-control" %>
+		  	</div>
+		  	<div class="form-group col-xs-6 text-left">
+		  		<%= f.label :last_name, 'Last Name' %> 
+	  			<%= f.text_field :last_name, class: "form-control" %>
+		  	</div>
+
+	  		<div class="form-group col-xs-12 text-left">
+		  		<%= f.label :billing_address1, 'Address' %>
+		  		<%= f.text_field :billing_address1, class: "form-control", placeholder: "Line 1" %>
+		  		<%= f.text_field :billing_address2, class: "form-control", placeholder: "Line 2", value: "Line 2" %>
+	  		</div>
+		    <div class="form-group col-sm-4 text-left">
+		  		<%= f.label "City" %>
+		  		<%= f.text_field :billing_address3, class: "form-control", placeholder: "City" %>
+		  		<%= f.hidden_field :billing_address4, value: "Unused Address Line" %>
+		  	</div>
+
+		    <div class="form-group col-sm-4 text-left">
+		  		<%= f.label :billing_postcode, 'Zip/Post Code' %>
+		  		<%= f.text_field :billing_postcode, class: "form-control" %>
+		  	</div>
+		  	<div class="form-group col-sm-4 text-left">
+		  		<%= f.label "Country" %>
+		  		<%= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, :include_blank => true %>
+		  	</div>
+
+		    <div class="form-group col-xs-6 text-left">
+				<%= f.label :email_address %>
+	    		<%= f.text_field :email_address, class: "form-control" %>
+		  	</div>
+		  	<div class="form-group col-xs-6 text-left">
+				<%= f.label :phone_number %>
+	  			<%= f.text_field :phone_number, class: "form-control" %>
+		  	</div>
+			    <%= f.submit 'Continue', class: "btn cta" %>
+		<% end %>
+	</div> <!-- blue box -->
+
+</div> <!-- container -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

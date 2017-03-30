@@ -1,0 +1,21 @@
+<div class="row">
+	<div class="blue-box col-xs-10 col-xs-push-1">
+		<div class="header-row text-center row">
+			<h2>Edit <%= @item.name %></h2>
+		  	<%= image_tag "tire_tracks.jpg", class: "tracks", alt: "Tire track marks", style: "max-height: 80px; width: auto" %>
+		</div> <!-- header row -->
+
+		<%= render 'form' %>
+
+		<div class="text-center">
+			<%= link_to 'Show', @item %> |
+			<%= link_to 'Back', items_path %>
+		</div> <!-- centered -->
+	</div> <!-- blue box -->
+</div> <!-- row -->
+
+<script type="text/javascript">
+  $(document).ready(function(){
+    $(".footer").removeClass("top-shadow-inset");
+  });
+</script>

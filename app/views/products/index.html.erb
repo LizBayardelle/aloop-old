@@ -1,95 +1,30 @@
-<div class="hero-image-row">
-  <div class="hero-image-outer text-center">
-    <div class="hero-image-inner text-center">
-      <%= image_tag "polaris_3.jpg", class: "hero-image", alt: "Asphalt road with clouds." %>
-    </div> <!-- hero-image-inner -->
-  </div> <!-- hero-image-inner -->
-</div> <!-- row -->
+<div class="container">
+  <h2 class="text-center">Products</h2>
 
-<div class="overlap-hero-image">
-  <div class="index-text row">
-    <h2>Aloop Store</h2>
-  </div> <!-- index text row -->
-</div> <!-- overlap hero image -->
+  <% @products.each do |category, products| %>
+    <h3><%= category.name %></h3>
 
-<div class="row text-center background-white bottom-shadow" style="padding-bottom: 25px; margin-bottom: 50px">
-  <div class="row">
-    <div class="container">
+    <% products.each do |product| %>
+      <div class="item-row black-border-row row" style="margin-bottom: 60px">
+        <div class="container">
+          <div class="col-sm-3 text-center">
+            <%= image_tag product.default_image.path, alt: product.name, style: "padding: 20px; max-width: 100%" %>
 
-      <div class="col-sm-4 inner-15">
-        <div class="black-box hover store-featured">
-          <div class="image-box">
-            <%= image_tag "kit_1_1.jpg", alt: "Aloop 4SMX Seat/Tank Kit for XR250 and XR400" %>
-          </div> <!-- image box -->
-          <div class="text-box">
-            <h3>4SMX for XR250/XR400</h3>
-            <p>The most popular XR400 performance modification in the world!</p>
-            <div class="btn cta"><%= link_to "Product Info", kits_XR250_XR400_path %></div>
-          </div> <!-- text-box -->
-        </div> <!-- black box -->
-      </div> <!-- column -->
+            <h3><strong><%= number_to_currency product.price %></strong></h3>
+          </div> <!-- image -->
 
-      <div class="col-sm-4 inner-15">
-        <div class="black-box hover store-featured">
-          <div class="image-box">
-            <%= image_tag "kit_2_1.jpg", alt: "Aloop 4SMX Seat/Tank Kit for XR600" %>
-          </div> <!-- image box -->
-          <div class="text-box">
-            <h3>4SMX for XR600</h3>
-            <p>The most popular XR400 performance modification in the world!</p>
-            <div class="btn cta"><%= link_to "Product Info", kits_XR600_path %></div>
-          </div> <!-- text-box -->
-        </div> <!-- black box -->
-      </div> <!-- column -->
-
-      <div class="col-sm-4 inner-15">
-        <div class="black-box hover store-featured">
-          <div class="image-box">
-            <%= image_tag "kit_3_1.jpg", alt: "Aloop 4SMX Seat/Tank Kit for XR650L" %>
-          </div> <!-- image box -->
-          <div class="text-box">
-            <h3>4SMX for XR650L</h3>
-            <p>The most popular XR400 performance modification in the world!</p>
-            <div class="btn cta"><%= link_to "Product Info", kits_XR650L_path %></div>
-          </div> <!-- text-box -->
-        </div> <!-- black box -->
-      </div> <!-- column -->
-
-    </div> <!-- container -->
-  </div> <!-- black box row -->
-</div>
-
-<div class="header-row row text-center">
-  <div class="col-xs-10 col-xs-push-1 blue-box">
-    <div class="text-right">
-      <% if current_user && current_user.admin %>
-        <%= link_to 'New Product', new_product_path, style: "padding: 15px" %>
-      <% end %>
-    </div> <!-- right nav -->
-
-    <div class="row">
-      <h2>Other Aloop Products</h2>
-      <h3>Along with our game-changing 4SMX kits, we now carry other plastic parts to help convert your XR into a genuine 4SMX weapon.</h3>
-      <h3><strong>Click on a tag below to sort through our products or browse the entire catalogue below.</strong></h3>
-
-      <div class="row">
-        <div id="tag_cloud" class="col-sm-6 col-sm-push-3" style="margin-top: 20px">
-          <% tag_cloud Product.tag_counts, %w{s m l} do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-          <% end %>
-        </div> <!-- tag cloud -->
-      </div> <!-- tag cloud row -->
-
-      
-    </div> <!-- row -->
-  </div> <!-- column -->
-
-</div> <!-- header row -->
-
-
-<% @products.each do |product| %>
-  <%= render "product_row", product: product, order_item: @order_item %>
-<% end %> <!-- each ends -->
+          <div class="col-sm-9">
+            <h1><%= product.name %></h1>
+            <p><%= product.short_description %></p>
+            <%= link_to product_path(product.permalink), :method => :post do %>
+              <div class="btn cta">Add to Cart</div>
+            <% end %>
+          </div> <!-- info -->
+        </div> <!-- page container -->
+      </div> <!-- item row -->
+    <% end %> <!-- products -->
+  <% end %> <!-- categories -->
+</div> <!-- container -->
 
 <script type="text/javascript">
   $(document).ready(function(){

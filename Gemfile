@@ -12,6 +12,7 @@ group :development do
   gem 'binding_of_caller'
   gem 'better_errors'
   gem 'quiet_assets'
+  gem 'byebug'
 end
 
 gem 'bootstrap-sass', '~> 3.3.6'
@@ -36,3 +37,6 @@ gem 'ionicons-rails'
 gem 'autonumeric-rails'
 gem 'acts-as-taggable-on'
 gem 'aws-sdk', '~> 2.3'
+gem 'shoppe'
+gem 'omniauth'
+gem 'shoppe-stripe', require: 'shoppe/stripe'
