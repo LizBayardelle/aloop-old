@@ -1,10 +1,10 @@
 <div class="container">
-	<%= shoppe_stripe_javascript %>
+	
 
 	<h2 class="text-center">Make your payment</h2>
 
 	<div class="blue-box">
-		<%= form_tag nil, class: "stripeForm" do %>
+		<%= form_tag nil, class: "stripeFormsds" do %>
 		  <%= hidden_field_tag "stripe_token", nil, "data-stripe" => "token" %>
 		  <dl>
 		    <dt><%= label_tag 'card_number' %></dt>
@@ -26,3 +26,11 @@
     $(".footer").removeClass("top-shadow-inset");
   });
 </script>
+
+
+curl https://api.stripe.com/v1/tokens \
+   -u sk_test_PRWdmf3VrNRv2m6D6gA58dyn: \
+   -d card[number]=4242424242424242 \
+   -d card[exp_month]=12 \
+   -d card[exp_year]=2018 \
+   -d card[cvc]=123

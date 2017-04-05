@@ -1,4 +1,7 @@
 class OrdersController < ApplicationController
+	require "stripe"
+	before_action :set_stripe_token
+
 	def destroy
 	  current_order.destroy
 	  session[:order_id] = nil
@@ -33,4 +36,28 @@ class OrdersController < ApplicationController
 	    redirect_to root_path, :notice => "Order has been placed successfully!"
 	  end
 	end
+
+	private
+	def set_stripe_token
+		params[:stripe_token] ||= exchange_card_details_for_token
+	end
+
+	def exchange_card_details_for_token
+
+		Stripe.api_key = "sk_test_PRWdmf3VrNRv2m6D6gA58dyn"
+		card_details = {
+			number: params
+		}
+
+		Stripe::Token.create(
+		  :card => {
+		    :number => "4242424242424242",
+		    :exp_month => 4,
+		    :exp_year => 2018,
+		    :cvc => "314"
+		  },
+		)
+
+	end
+
 end

@@ -16,5 +16,4 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require magnific-popup
-//= require shoppe/stripe/form_handler
 //= require_tree .
